@@ -10,18 +10,23 @@
         </div>
         <div class="modal-body"  style="overflow-y: scroll; height:300px;" id="cmID">
 
-
         </div>
-        <div class="modal-footer">
+         <div class="modal-footer m-footer-flex">
+                <form class="form ">
+                        <textarea  name="desc" rows="1"  name="comentarios" required value="" id="commentModalArea" data-id="" ></textarea>
+                        {{-- <button type="submit" class="btn btn-primary" id="commentModalBtn">
+                            Enviar
+                        </button> --}}
+                        <div class="btnCommentCss">
+                            <a class="btnModalCommentar"  id="commentModalBtn">
+                                <img src="{{'/img/enviar.png'}}" alt="imagen" />
+                            </a>
+                        <div>
+                </form>
 
-            <form class="form">
-                <textarea  name="desc" rows="1"  name="comentarios" required value="" id="commentModalArea" data-id="" ></textarea>
-
-                <button type="submit" class="btn btn-primary" id="commentModalBtn">
-                    ADD
-                </button>
-            </form>
-
-      </div>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
+
+

@@ -49924,7 +49924,16 @@ btnSInput.forEach(function (enlace, index) {
 var btnLike = document.querySelectorAll('.btnCheckLike');
 btnLike.forEach(function (enlace, index) {
   enlace.addEventListener('click', function (e) {
-    var imageID = enlace.getAttribute("data-id");
+    var imageID = enlace.getAttribute("data-id"); // console.log(enlace.firstChild.classList.contains('fa-heart-o'))
+
+    if (enlace.firstChild.classList.contains('fa-heart-o')) {
+      enlace.firstChild.classList.remove('fa-heart-o');
+      enlace.firstChild.classList.add('fa-heart');
+    } else {
+      enlace.firstChild.classList.remove('fa-heart');
+      enlace.firstChild.classList.add('fa-heart-o');
+    }
+
     params = {
       id: imageID
     };
@@ -50026,8 +50035,10 @@ function comentaryReload(params) {
     respuesta.data[0].forEach(function (element) {
       var _element$ = element[0],
           desc = _element$.desc,
-          created_at = _element$.created_at;
-      fragment += "\n                        <div class=\"comment_Content\">\n                            <div class=\"comment_head\">\n                                <span>\n\n                                </span>\n                                <span>\n                                    ".concat(created_at, "\n                                </span>\n                            <div>\n                            <div class=\"comment_body\">\n                                <p>\n                                    ").concat(desc, "\n                                </p>\n                            <div>\n                        </div>");
+          created_at = _element$.created_at,
+          user_link = _element$.user_link;
+      console.log(element);
+      fragment += "\n                        <div class=\"comment_Content\">\n                            <div class=\"comment_head\">\n                                <span>\n                                    ".concat(user_link.name, "\n                                </span>\n                            <div>\n                            <div class=\"comment_body\">\n                                <p>\n                                    ").concat(desc, "\n                                </p>\n                            <div>\n                        </div>");
     });
     modalBody.innerHTML = fragment;
   });

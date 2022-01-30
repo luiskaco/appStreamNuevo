@@ -5,12 +5,9 @@
 
 
  <div class="container">
-        <h3> MURO </h3>
+
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal"
-        data-target="#upload_id">
-            Subir tu foto Aquí
-        </button>
+
 {{--
         <div class="containerGrid mt-4">
             @foreach ($resultImage as  $image)
@@ -67,6 +64,55 @@
         </div> --}}
 
   <div>
+
+    <div class="container mt-4">
+        <div class="row justify-content-center flex-column text-center headingSocial">
+            <h3>Galería</h3>
+            <p>Sube tu fotografía y cuéntanos cuál es tu sueño o meta para la Travesía 2022</p>
+
+            <button type="button" class="btn btn-yellow" data-toggle="modal"
+            data-target="#upload_id">
+                Sube tu foto Aquí
+            </button>
+        </div>
+    </div>
+
+
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-sm-12">
+                <div class="instagram-card">
+                    <div class="instagram-card-header">
+                        <span class="instagram-card-user-name">Hola mund</span>
+                    </div>
+                    <div class="instagram-card-image">
+                        <img src="{{Storage::url('fotos/1643414635.jpg')}}" alt="imagen-"/>
+                        <div class="instagram-card-content">
+                        <p class="card-description"></p>
+                        </div>
+                    </div>
+                    <div class="instagram-card-footer">
+                        <p class="likes" id = heart>
+                            <a class="action-icon-liked " >
+                                <i class="fa fa-heart">
+                                    </i>
+                            </a><span id="count-"></span> Me gusta</p>
+
+                        <a class="linkComentario btnSearchComment">
+                                <img src="{{'/img/enviar.png'}}" alt="imagen-" />
+                            </a>
+                    </div>
+                </div><!--end item card-->
+            </div><!-- end col-md- 6-->
+        </div><!--- end row -->
+
+    </div>
+
+    <div class="container m-4">
+        <hr>
+    <div>
+
+
   <div class="container mt-4">
     <div class="container-cards">
 
@@ -82,14 +128,17 @@
                     </div>
                 </div>
                 <div class="instagram-card-footer">
-                    <p class="likes" id = heart><a class="action-icon-liked" ><i class="fa fa-heart-o"></i></a>18.068 Me gusta</p>
-                    {{-- <button type="button" class="btn btn-comment " data-toggle="modal" data-target="#modalAddComment"> Añadir comentario </button> --}}
+                    <p class="likes" id = heart>
+                        <a class="action-icon-liked btnCheckLike" data-id="{{$image->id}}">
+                            <i class="fa {{getCheckLike($image->id)}}">
+                             </i>
+                        </a><span id="count-{{$image->id}}">{{$image->like}}</span> Me gusta</p>
+
                     <a class="linkComentario btnSearchComment"
                     data-toggle="modal"
                     data-target="#commentId"
                     data-id="{{$image->id}}">
                             <img src="{{'/img/enviar.png'}}" alt="imagen-{{$image->id}}" />
-
                      </a>
                 </div>
             </div>
@@ -105,257 +154,15 @@
 
 @section('css')
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.min.css" integrity="sha512-jU/7UFiaW5UBGODEopEqnbIAHOI8fO6T99m7Tsmqs2gkdujByJfkCbbfPSN4Wlqlb9TGnsuC0YgUgWkRBK7B9A==" crossorigin="anonymous" />
+     <link href="{{asset('css/dropzone.css')}}" rel="stylesheet">
+     <link href="{{asset('css/cardSocial.css')}}" rel="stylesheet">
 
-    <link href="{{asset('css/dropzone.css')}}" rel="stylesheet">
-
-
-    <style>
-
-
-        .instagram-card{
-             background: #ffffff;
-            border: 1px solid #f2f2f2;
-            border-radius: 8px;
-            max-width: 100%;
-            /* max-width: 300px; */
-            height: fit-content;
-            padding: 0px 10px;
-        }
-
-        .instagram-card-header{
-            display: flex;
-            align-items: center;
-            height: 35px;
-        }
-
-        .instagram-card-user-image{
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            vertical-align: middle;
-        }
-
-        .instagram-card-time{
-            float: right;
-            width: 80px;
-            padding-top:10px;
-            text-align: right;
-            color: #999;
-        }
-
-        .instagram-card-user-name{
-            font-weight:bold;
-            color: #e40571;
-            padding-bottom: 3px;
-        }
-
-        .instagram-card-content{
-            padding: 20px 20px 5px;
-            position: absolute;
-            width: 100%;
-            color: white;
-            bottom: 0;
-            box-sizing: border-box;
-        }
-
-        .likes{
-            font-weight: bold;
-            margin: 0;
-        }
-
-        .instagram-card-content-user{
-            font-weight: bold;
-            color: #262626;
-        }
-
-        .hashtag{
-             color: #003569;
-        }
-
-        .comments{
-            color:#999;
-            margin: 10px 0 5px;
-        }
-
-        .user-comment{
-            color: #003569;
-        }
-
-        .instagram-card-image{
-            position: relative;
-        }
-
-        .instagram-card-footer{
-            padding: 15px 10px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: .7rem;
-        }
-
-        @media(min-width:768px){
-            .instagram-card-footer{
-                font-size: 1rem;
-            }
-        }
-
-        hr{
-            border: none;
-            border-bottom: 1px solid #ccc;
-            margin-top: 30px;
-            margin-bottom: 0px;
-
-        }
-
-        .action-icon-liked {
-            font-size: 16px;
-            color: #ccc;
-            padding-right: 6px;
-        }
-
-        .comments-input{
-            border: none;
-            margin-right: 10px;
-            width: 100%;
-            background: #f5f5f5;
-            padding: 10px 15px;
-            border-radius: 5px;
-        }
-
-        .comment a, .comment p{
-             font-size: 14px;
-        }
-
-        .fa-heart-o {
-            color: red;
-            cursor: pointer;
-        }
-
-        .fa-heart {
-            color: red;
-            cursor: pointer;
-        }
-
-        .container-cards{
-            display: grid;
-            grid-template-columns: repeat(1, 1fr) ;
-            grid-gap: 25px;
-        }
-
-            @media(min-width:768px){
-                .container-cards{
-                    grid-template-columns: repeat(2, 1fr) ;
-                }
-            }
-
-        .instagram-card-image img{
-            width: 100% !important;
-            object-fit: cover;
-            max-height: 250px;
-        }
-
-        .comment{
-            display: flex;
-                align-items: start;
-            }
-
-        .comment p{
-            padding-left: 10px;
-            margin: 0 0 10px 0;
-        }
-
-        .btn-comment{
-            background: #E40571;
-            text-align: center;
-            white-space: nowrap;
-            vertical-align: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            border: 1px solid transparent;
-            padding: 0.375rem 0.75rem;
-            font-size: .9rem;
-            color: white;
-            line-height: 1.5;
-            border-radius: 0.25rem;
-            transition: color .15s ease-in-out, background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-        }
-
-        .card-description{
-            margin: 5px 0;
-        }
-
-    </style>
-
-
-
-    <style>
-        .containerGrid{
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-
-        .content{
-            display: flex;
-            flex-direction: column;
-        }
-
-        .content h3 {
-            color: #fff;
-            font-size:1rem;
-        }
-
-        .content span{
-            color: #fff;
-        }
-
-        .sizeTemporal{
-            width: 100%;
-            height: 200px;;
-            max-width: 100%;
-        }
-
-        a.linkComentario{
-            color:#ffF;
-            font-size: 1.5rem;
-            text-decoration: none;
-        }
-
-       a.linkComentario:hover{
-            color:aquamarine
-        }
-
-        .errorInput{
-            display: none;
-        }
-
-        .comment_Content{
-            display: flex;
-            flex-direction: column;
-            gap:3rem;
-
-        }
-
-        .comment_head{
-            background-color:#e5e5e5;
-        }
-
-        .comment_body{
-            background-color:#f8f8f8;
-         }
-
-    </style>
 
 @endsection
 
-
 @section('js')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.js" integrity="sha512-4p9OjnfBk18Aavg91853yEZCA7ywJYcZpFt+YB+p+gLNPFIAlt2zMBGzTxREYh+sHFsttK0CTYephWaY7I3Wbw==" crossorigin="anonymous"></script>
-
     <script src="{{asset('js/dropzoneCustom.js')}}" ></script>
-    {{-- @include('muro.partials.codigo') --}}
 
 @endsection
 

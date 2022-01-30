@@ -5,7 +5,7 @@
      // Dropzone
     const dropzoneDevjobs = new Dropzone('#dropzonePhoto',{
         url: "/evento/galeria/uploadPhoto", // Ruta destino | Debe colocrse comillas dobles
-        dictDefaultMessage: "Sube o arrastra tu foto", // Cambiar nombre del input
+        dictDefaultMessage: "Añadir foto", // Cambiar nombre del input
         acceptedFiles:".png, .jpg , .jpeg ", // Validar formato
         addRemoveLinks: true, // Agregar boton de eliminar
         dictRemoveFile: 'Borrar Archivo',  // Cambiar nombre del boton borrar

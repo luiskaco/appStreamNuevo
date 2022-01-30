@@ -21,9 +21,9 @@ if (! function_exists('getCheckLike')) {
         $result = ImageLike::where('image_id',  $id)->where('user_id', $userID)->get()->count();
 
         if($result > 0){
-            return "checked";
+            return "fa-heart";
         }else{
-            return "";
+            return "fa-heart-o";
         }
     }
 }

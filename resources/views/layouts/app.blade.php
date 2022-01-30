@@ -24,6 +24,21 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <style>
+
+        /*UTLIDADES*/
+
+        /*focus de boostrp*/
+        .form-control:focus {
+            border-color: white;
+            box-shadow: 0 0 0 0.2rem #C9005C;
+        }
+
+        /*sombra de boostrp*/
+        .modal-open .modal {
+                background: #0000007a;
+            }
+
+
         .bgPrincipal{
             background-size:cover;
             background-image: url(http://127.0.0.1:8000/img/bg/bgPrincipal.jpg);
@@ -51,6 +66,8 @@
             background-repeat: no-repeat;
             background-color: #D7573A;
         }
+
+        /*END UTILIDADES*/
 
         .main {
             display: flex;
@@ -164,9 +181,6 @@
                 }
             }
 
-            .modal-open .modal {
-                background: #0000007a;
-            }
 
     </style>
 

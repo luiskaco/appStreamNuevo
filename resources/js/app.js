@@ -99,6 +99,16 @@ btnLike.forEach((enlace, index) => {
     enlace.addEventListener('click', e => {
         const imageID= enlace.getAttribute("data-id");
 
+        // console.log(enlace.firstChild.classList.contains('fa-heart-o'))
+
+        if(enlace.firstChild.classList.contains('fa-heart-o')){
+            enlace.firstChild.classList.remove('fa-heart-o')
+            enlace.firstChild.classList.add('fa-heart')
+        }else{
+            enlace.firstChild.classList.remove('fa-heart')
+            enlace.firstChild.classList.add('fa-heart-o')
+        }
+
         params= {
             id: imageID
         }
@@ -228,16 +238,15 @@ function comentaryReload(params){
             }
                 respuesta.data[0].forEach(element => {
 
-                    const {desc, created_at} = element[0]
+                    const {desc, created_at, user_link} = element[0]
+
+                    console.log(element)
 
                     fragment += `
                         <div class="comment_Content">
                             <div class="comment_head">
                                 <span>
-
-                                </span>
-                                <span>
-                                    ${created_at}
+                                    ${user_link.name}
                                 </span>
                             <div>
                             <div class="comment_body">
