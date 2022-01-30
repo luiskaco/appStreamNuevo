@@ -1,0 +1,94 @@
+
+    /** Dropzone **/
+    .bgGray100 {
+        background-color: rgb(243 244 246);
+    }
+
+    .rounded {
+        border-radius: 0.25rem;
+        border: 1px dashed #e5e7eb;
+    }
+
+    .dz-image-preview{
+        background-color:rgb(243 244 246) !important;
+    }
+
+    .dropzone .dz-preview .dz-image {
+        background-color:rgb(243 244 246);
+
+        -webkit-box-shadow: -2px 2px 11px 1px rgba(173,173,173,1);
+        -moz-box-shadow: -2px 2px 11px 1px rgba(173,173,173,1);
+        box-shadow: -2px 2px 11px 1px rgba(173,173,173,1);
+    }
+
+    .dropzone .dz-message .dz-button {
+        font-size:1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align:center;
+
+    }
+
+        @media(min-width: 768px){
+            .dropzone .dz-message .dz-button {
+                font-size:1.5rem;
+
+            }
+        }
+
+    .dropzone .dz-preview .dz-remove {
+        font-size: 14px ;
+        text-decoration: none !important;
+        color: #FE8225 !important;
+        font-weight: 600;
+
+        transition-property: color;
+        transition-duration: .3s;
+        transition-timing-function: ease-in-out;
+    }
+
+    .dropzone .dz-preview .dz-remove:hover{
+        color: #db5f06 !important;
+    }
+
+    .msgFormat{
+        font-size:.6rem;
+    }
+
+    /** Modal Upload **/
+    .modal-header{
+        /* background-color: #fd9e02; */
+        color: #000;
+        font-weight: 700;
+        font-size: 2rem !important;
+        text-align: center;
+    }
+
+    .modal-header  .close {
+        color: #fff;
+        font-size: 2rem !important;
+
+    }
+
+    .modal-footer{
+        display:flex;
+        justify-content:center;
+    }
+
+    /*alert*/
+    .bk-h{
+        display: none;
+    }
+
+    .alert{
+         margin:0;
+         padding:0;
+    }
+
+    .alert p {
+        font-size:.8rem;
+        color: #ff155b;
+        font-weight: 500;
+        margin:0;
+        padding:0;
+    }

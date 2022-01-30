@@ -1,0 +1,80 @@
+[33mcommit c80dec9a1a19e61d2e34de9aa726f5a7e969d562[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Merge: 93021b5 5b166f1
+Author: Luis Gomez <luiskaco@gmail.com>
+Date:   Mon Jan 24 17:08:13 2022 -0500
+
+    integrado
+
+[33mcommit 93021b5a3f464ac963198bd64d5ce4502b5b1be6[m
+Author: Luis Gomez <luiskaco@gmail.com>
+Date:   Mon Jan 24 17:06:06 2022 -0500
+
+    Editando el menu, y agregando modal
+
+[33mcommit 5b166f1ecf17778d68bcc08abd782e847c4c6c88[m
+Merge: 4a821fb 94ffe4b
+Author: AlexanderQuispeQuino <alessix.291296@gmail.com>
+Date:   Mon Jan 24 17:04:37 2022 -0500
+
+    custom css login y registro ok
+
+[33mcommit 4a821fb9dfd3a0b270df8826fd6977625c023e59[m
+Author: AlexanderQuispeQuino <alessix.291296@gmail.com>
+Date:   Mon Jan 24 15:20:19 2022 -0500
+
+    vacio
+
+[33mcommit 94ffe4b766b592fca6827f002d0ed287c5a28336[m
+Author: Luis Gomez <luiskaco@gmail.com>
+Date:   Mon Jan 24 15:15:22 2022 -0500
+
+    Integrado login y Registro
+
+[33mcommit 030ac7bb57e2ae5fba84031a00f9e3ceadc7a9e6[m
+Merge: bf4c813 8f56ba0
+Author: Luis Gomez <luiskaco@gmail.com>
+Date:   Mon Jan 24 14:11:51 2022 -0500
+
+    Actualizado
+
+[33mcommit bf4c8138992aa8eca4dcaef7710b5829cf113049[m
+Author: Luis Gomez <luiskaco@gmail.com>
+Date:   Mon Jan 24 14:06:44 2022 -0500
+
+    Programado el registrar con sus validaciones
+
+[33mcommit 8f56ba01254d8e1d1e79c0ac689bbeb4b5d593a5[m
+Author: AlexanderQuispeQuino <alessix.291296@gmail.com>
+Date:   Mon Jan 24 14:04:35 2022 -0500
+
+    css custom login
+
+[33mcommit 69f96f1e7731ad3e270cc328fc2ab7056dcc7b17[m
+Author: Luis Gomez <luiskaco@gmail.com>
+Date:   Mon Jan 24 12:02:29 2022 -0500
+
+    Movido css al app
+
+[33mcommit b53dd3405e147419c2559895d14e9255b2007de7[m
+Author: Luis Gomez <luiskaco@gmail.com>
+Date:   Mon Jan 24 11:22:32 2022 -0500
+
+    Modificacion de la tabla usuario
+
+[33mcommit 0c8e1a4906103a6450c4c91f10194f1bf51d5d61[m
+Author: Luis Gomez <luiskaco@gmail.com>
+Date:   Fri Jan 21 17:31:16 2022 -0500
+
+    Se ha añadido la el boton de registrar
+
+[33mcommit f0d3e64c12820403cfcd29a7645c47b2c677132c[m
+Author: Luis Gomez <luiskaco@gmail.com>
+Date:   Thu Jan 20 23:44:18 2022 -0500
+
+    Agregado interfz en el login
+
+[33mcommit 87f6d584a969c0d33ea06ca29b4d7686a2149eb3[m
+Author: Luis Gomez <luiskaco@gmail.com>
+Date:   Thu Jan 20 16:52:52 2022 -0500
+
+    Primeros cambios
