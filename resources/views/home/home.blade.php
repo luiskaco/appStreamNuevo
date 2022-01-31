@@ -12,7 +12,7 @@
                 <div class="  col-lg-8 col-12 col-md-7 col-sm-7 d-flex align-items-center row container-title-video" style="margin: 0px !important">
                     <div class="col-12 container-title-button row text-left pb-3">
                         <h5 class="font-weight-bold text-white custom-form-title">Muéstranos cómo estás viviendo tu travesía</h5>
-                        <button type="button" class="btn  custom-button-photo font-weight-bold text-white" data-toggle="modal" data-target="#modalSubeTuFoto">
+                        <button type="button" class="btn  custom-button-photo font-weight-bold text-white" >
                             Sube tu foto aquí <i class="fas fa-upload"></i>
                         </button>
 

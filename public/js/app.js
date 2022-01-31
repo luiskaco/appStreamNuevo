@@ -49875,10 +49875,10 @@ Vue.component('enviar-component', __webpack_require__(/*! ./components/EnviarMsn
 
 var app = new Vue({
   el: '#app'
-}); // ajaxID
-
-window.onload = function () {}; // botn
-
+}); // // ajaxID
+// document.addEventListener('DOMContentLoaded', () => {
+// cardAjax();
+// botn
 
 var btnSInput = document.querySelectorAll(".bgInput");
 btnSInput.forEach(function (enlace, index) {
@@ -49919,143 +49919,191 @@ btnSInput.forEach(function (enlace, index) {
       }
     }
   });
-}); // BOTON LIKE
-
-var btnLike = document.querySelectorAll('.btnCheckLike');
-btnLike.forEach(function (enlace, index) {
-  enlace.addEventListener('click', function (e) {
-    var imageID = enlace.getAttribute("data-id"); // console.log(enlace.firstChild.classList.contains('fa-heart-o'))
-
-    if (enlace.firstChild.classList.contains('fa-heart-o')) {
-      enlace.firstChild.classList.remove('fa-heart-o');
-      enlace.firstChild.classList.add('fa-heart');
-    } else {
-      enlace.firstChild.classList.remove('fa-heart');
-      enlace.firstChild.classList.add('fa-heart-o');
-    }
-
-    params = {
-      id: imageID
-    };
-    axios.post('/evento/galeria/likeStore', params).then(function (respuesta) {
-      console.log(respuesta.data.like);
-      document.getElementById("count-".concat(imageID)).innerText = respuesta.data.like;
-    });
-  });
-}); /// Comentariosd
-
-var btnModalSubmit = document.getElementById('commentModalBtn');
-btnModalSubmit.addEventListener('click', function (e) {
-  e.preventDefault();
-  var commentModal = document.getElementById('commentModalArea');
-
-  if (commentModal.value.trim() != "") {
-    var imageID = commentModal.getAttribute('data-id');
-    var vArea = commentModal.value;
-    params = {
-      id: imageID,
-      value: vArea
-    };
-    paramsR = {
-      id: imageID
-    };
-    comentaryStore(params); // Recargamos
-
-    comentaryReload({
-      id: imageID
-    }); // Limpiamos
-
-    commentModal.value = "";
-  }
-});
-var btnSubmit = document.querySelectorAll(".btnClickComment");
-btnSubmit.forEach(function (enlace, index) {
-  enlace.addEventListener('click', function (e) {
-    e.preventDefault();
-    var imageID = enlace.getAttribute("data-id"); // const query = document.getElementById(`input-${imageID}`);
-
-    var query = document.getElementById("input-".concat(imageID));
-
-    if (query.value.trim() == '') {
-      console.log("No puede quedar vacio");
-      document.querySelector(".error-".concat(imageID)).classList.remove('errorInput');
-      setTimeout(function () {
-        document.querySelector(".error-".concat(imageID)).classList.add('errorInput');
-      }, 3000);
-      return;
-    }
-
-    params = {
-      id: imageID,
-      value: query.value
-    };
-    query.value = "";
-    comentaryStore(params);
-  });
-}); // consultar
-
-var btnclick = document.querySelectorAll(".btnSearchComment");
-btnclick.forEach(function (enlace, index) {
-  enlace.addEventListener('click', function () {
-    var imageID = enlace.getAttribute("data-id"); // add a botom modal el id de la iamgen
-
-    document.getElementById('commentModalArea').setAttribute('data-id', imageID);
-    params = {
-      id: imageID
-    };
-    comentaryReload(params);
-  });
-}); // Peticioens Ajax
-// Only Comentarios
-
-function comentaryStore(params) {
-  var id = params.id;
-  axios.post('/evento/galeria/commentStore', params).then(function (respuesta) {
-    // console.log(respuesta)
-    if (!respuesta.error) {
-      SweetMsg('success', "Genial!!", "Se ha registrado tu comentario", '', 1200);
-      document.getElementById("countComentaryID-".concat(id)).innerText = respuesta.data.commentary;
-    } else {
-      SweetMsg('error', "Ups!!!", "Comuniquese con el administrador del sitio", '', 1200);
-    }
-  });
-}
-
-function comentaryReload(params) {
-  axios.post('/evento/galeria/queryComment', params).then(function (respuesta) {
-    // console.log(respuesta)
-    var modalBody = document.getElementById('cmID');
-    var fragment = '';
-    modalBody.innerHTML = '';
-
-    if (respuesta.data.error) {
-      return;
-    }
-
-    respuesta.data[0].forEach(function (element) {
-      var _element$ = element[0],
-          desc = _element$.desc,
-          created_at = _element$.created_at,
-          user_link = _element$.user_link;
-      console.log(element);
-      fragment += "\n                        <div class=\"comment_Content\">\n                            <div class=\"comment_head\">\n                                <span>\n                                    ".concat(user_link.name, "\n                                </span>\n                            <div>\n                            <div class=\"comment_body\">\n                                <p>\n                                    ").concat(desc, "\n                                </p>\n                            <div>\n                        </div>");
-    });
-    modalBody.innerHTML = fragment;
-  });
-} //  SweetMsg('error', "Ups!!", "Tenemos un problema")
-
-
-function SweetMsg(type, title, text) {
-  var footer = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
-  var time = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 0;
-  Swal.fire({
-    icon: type,
-    title: title,
-    text: text,
-    timer: time,
-    footer: "<a href=\"\">".concat(footer, "</a>")
-  });
-}
+}); // // BOTON LIKE
+// const btnLike = document.querySelectorAll('.btnCheckLike')
+// btnLike.forEach((enlace, index) => {
+//     enlace.addEventListener('click', e => {
+//         const imageID= enlace.getAttribute("data-id");
+//         // console.log(enlace.firstChild.classList.contains('fa-heart-o'))
+//         if(enlace.firstChild.classList.contains('fa-heart-o')){
+//             enlace.firstChild.classList.remove('fa-heart-o')
+//             enlace.firstChild.classList.add('fa-heart')
+//         }else{
+//             enlace.firstChild.classList.remove('fa-heart')
+//             enlace.firstChild.classList.add('fa-heart-o')
+//         }
+//         params= {
+//             id: imageID
+//         }
+//         axios.post('/evento/galeria/likeStore', params )
+//         .then(respuesta => {
+//                 console.log(respuesta.data.like)
+//                 document.getElementById(`count-${imageID}`).innerText = respuesta.data.like
+//          });
+//     });
+// });
+// /// Comentariosd
+// const btnModalSubmit = document.getElementById('commentModalBtn')
+//     btnModalSubmit.addEventListener('click', e => {
+//     e.preventDefault();
+//     const commentModal = document.getElementById('commentModalArea')
+//         if(commentModal.value.trim() != ""){
+//             const imageID = commentModal.getAttribute('data-id')
+//             const vArea = commentModal.value;
+//             params= {
+//                 id: imageID,
+//                 value: vArea
+//             }
+//             paramsR= {
+//                 id: imageID
+//             }
+//             comentaryStore(params);
+//             // Recargamos
+//             comentaryReload({
+//                 id: imageID
+//             });
+//             // Limpiamos
+//             commentModal.value = ""
+//         }
+// });
+// const btnSubmit = document.querySelectorAll(".btnClickComment");
+// btnSubmit.forEach((enlace, index) => {
+//         enlace.addEventListener('click', e => {
+//             e.preventDefault();
+//             const imageID= enlace.getAttribute("data-id");
+//             // const query = document.getElementById(`input-${imageID}`);
+//              const query = document.getElementById(`input-${imageID}`);
+//             if(query.value.trim() ==''){
+//                 console.log("No puede quedar vacio")
+//                 document.querySelector(`.error-${imageID}`).classList.remove('errorInput')
+//                 setTimeout(() => {
+//                     document.querySelector(`.error-${imageID}`).classList.add('errorInput')
+//                 }, 3000)
+//                 return ;
+//             }
+//             params= {
+//                 id: imageID,
+//                 value: query.value
+//             }
+//             query.value=""
+//             comentaryStore(params);
+//         });
+// });
+// // consultar
+// const btnclick = document.querySelectorAll(".btnSearchComment");
+// btnclick.forEach((enlace, index) => {
+//     enlace.addEventListener('click', () => {
+//         const imageID= enlace.getAttribute("data-id");
+//         // add a botom modal el id de la iamgen
+//         document.getElementById('commentModalArea').setAttribute('data-id', imageID)
+//         params = {
+//             id:imageID
+//         }
+//         comentaryReload(params);
+//     })
+// })
+// });
+// function myFunction() {
+//     console.log("ola")
+//   }
+// // Peticioens Ajax
+// // Only Comentarios
+// function comentaryStore(params){
+//     const {id} = params;
+//     axios.post('/evento/galeria/commentStore', params )
+//     .then(respuesta => {
+//             // console.log(respuesta)
+//             if(!respuesta.error){
+//                 SweetMsg('success', "Genial!!", "Se ha registrado tu comentario",'', 1200)
+//                 document.getElementById(`countComentaryID-${id}`).innerText = respuesta.data.commentary;
+//             }else{
+//                 SweetMsg('error', "Ups!!!", "Comuniquese con el administrador del sitio",'', 1200)
+//             }
+//      });
+// }
+// function comentaryReload(params){
+//     axios.post('/evento/galeria/queryComment', params )
+//     .then(respuesta => {
+//             // console.log(respuesta)
+//             const modalBody = document.getElementById('cmID');
+//             let fragment = '';
+//             modalBody.innerHTML = ''
+//             if(respuesta.data.error){
+//                 return;
+//             }
+//                 respuesta.data[0].forEach(element => {
+//                     const {desc, created_at, user_link} = element[0]
+//                     // console.log(element)
+//                     fragment += `
+//                         <div class="comment_Content">
+//                             <div class="comment_head">
+//                                 <span>
+//                                     ${user_link.name}
+//                                 </span>
+//                             <div>
+//                             <div class="comment_body">
+//                                 <p>
+//                                     ${desc}
+//                                 </p>
+//                             <div>
+//                         </div>`;
+//                 });
+//                 modalBody.innerHTML = fragment
+//     })
+// }
+// function card(data){
+//     let fragment = '';
+//         data.forEach(element => {
+//         fragment+=
+//                 `<div class='instagram-card'>
+//                     <div class='instagram-card-header'>
+//                         <span class='instagram-card-user-name'>${element.name}</span>
+//                     </div>
+//                     <div class='instagram-card-image'>
+//                         <img src='${element.url}' alt='imagen-${element.id}'/>
+//                         <div class='instagram-card-content'>
+//                         <p class='card-description'>${element.commentary}</p>
+//                         </div>
+//                     </div>
+//                     <div class='instagram-card-footer'>
+//                         <p class='likes' id = heart>
+//                             <a class='action-icon-liked btnCheckLike' data-id='${element.id}' >
+//                                 <i class='fa ${element.likeCheck}'>
+//                                 </i>
+//                             </a><span id='count-${element.id}'>${element.like}</span> Me gusta</p>
+//                         <a class='linkComentario btnSearchComment'
+//                         data-toggle='modal'
+//                         data-target='#commentId'
+//                         data-id='${element.id}'
+//                         onclick="myFunction(${element.id})"
+//                         >
+//                                 <img src='/img/enviar.png' alt='imagen-${element.id}' />
+//                         </a>
+//                     </div>
+//                 </div>`;
+//             })
+//         return fragment;
+// }
+// function cardAjax () {
+//     axios.post('/evento/galeria/cardList' )
+//     .then(respuesta => {
+//        const {data, html} = respuesta.data;
+//             console.log(respuesta)
+//             console.log(data)
+//              document.getElementById('desct').innerHTML = card(data);
+//                 // SweetMsg('success', "Genial!!", "Se ha registrado tu comentario",'', 1200)
+//      });
+// }
+//  SweetMsg('error', "Ups!!", "Tenemos un problema")
+// function SweetMsg(type, title, text, footer = '', time=0){
+//     Swal.fire({
+//         icon: type,
+//         title: title,
+//         text: text,
+//         timer: time,
+//         footer: `<a href="">${footer}</a>`
+//       })
+// }
 
 /***/ }),
 

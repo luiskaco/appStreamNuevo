@@ -1,24 +1,56 @@
 
 /*BOTON SUBIR EN SOCIAL*/
 .headingSocial h3{
-    font-size:3rem;
+    font-size:1.5rem;
     color:#fff;
     font-weight: 600;
 }
 
+@media(min-width:768px){
+    .headingSocial h3{
+        font-size:3rem;
+    }
+}
+
 .headingSocial p{
     color:#fff;
-    font-size:1.5rem;
+    font-size:1rem;
+}
+
+@media(min-width:768px){
+    .headingSocial p{
+        font-size:1.5rem;
+    }
+}
+
+.containerBtn{
+    margin: 30px;
 }
 
 .btn-yellow{
     color: #fff;
     background-color: #FFA300 !important;
     border-color: #FFA300;
-    width: 30%;
-    display: block;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
+@media(min-width:768px){
+    .btn-yellow{
+        font-size: 2rem;
+    }
+}
+
+.btn-yellow:hover{
+    color: #fff !important;
+    background-color: #ffa200cb !important;
+    border-color: #ffa200cb;
+}
+
+/* LINEA*/
+.lineSocial{
+    margin: 80px !important;
+}
 
 /** SOCIAL*/
 

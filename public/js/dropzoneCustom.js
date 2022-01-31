@@ -145,6 +145,8 @@
 
                     document.getElementById('modalClose').click();
 
+                    cardAjax();
+
                     Swal.fire({
                             icon: 'success',
                             title: 'Genial!!!',

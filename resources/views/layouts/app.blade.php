@@ -14,8 +14,7 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
@@ -43,7 +42,7 @@
             background-size:cover;
             background-image: url(http://127.0.0.1:8000/img/bg/bgPrincipal.jpg);
             background-repeat: no-repeat;
-            background-color: #088398;
+            background-color: #C9005C;
         }
 
         .bg01{

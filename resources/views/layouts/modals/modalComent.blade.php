@@ -8,17 +8,17 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body"  style="overflow-y: scroll; height:300px;" id="cmID">
+        <div class="modal-body"  style="overflow-y: scroll; scroll-behavior: smooth; height:300px;" id="cmID">
 
         </div>
          <div class="modal-footer m-footer-flex">
                 <form class="form ">
-                        <textarea  name="desc" rows="1"  name="comentarios" required value="" id="commentModalArea" data-id="" ></textarea>
+                        <textarea  name="desc" rows="1"  name="comentarios" placeholder="Dime que piensas" required value="" id="commentModalArea" data-id="" ></textarea>
                         {{-- <button type="submit" class="btn btn-primary" id="commentModalBtn">
                             Enviar
                         </button> --}}
                         <div class="btnCommentCss">
-                            <a class="btnModalCommentar"  id="commentModalBtn">
+                            <a class="btnModalCommentar"  id="commentModalBtn" data-id="" onclick="btnSubmit(event)">
                                 <img src="{{'/img/enviar.png'}}" alt="imagen" />
                             </a>
                         <div>

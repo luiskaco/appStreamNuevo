@@ -22,17 +22,13 @@ class ImageController extends Controller
      */
     public function index($id = null)
     {
-        $resultImage = Images::orderBy('created_at', 'desc')->paginate();
-        return view('muro.index', compact('resultImage'));
+        // $resultImage = Images::orderBy('created_at', 'desc')->paginate();
+        // return view('muro.index', compact('resultImage'));
     }
 
     public function eventID($id){
 
-        $resultImage = Images::where('group', $id)->orderBy('created_at', 'desc')->paginate();
-
-
-
-        return view('muro.index', compact('resultImage'));
+        return view('muro.index', compact('id'));
     }
 
     /**
@@ -140,48 +136,57 @@ class ImageController extends Controller
 
     /***  CONTENTEDOR CARD  ***/
     public function cardList(Request $request){
-        $resultImage = Images::orderBy('created_at', 'desc')->paginate();
+        $resultImage = Images::where('group', $request->id)->orderBy('created_at', 'desc')->paginate()->take(30);
+        $html='';
+        $data=array();
 
-            $html='';
+            // $html='<div>
+            //     <a href="#" onclick="myFunction(2)">Hola</a>
+            // </div>';
 
-            foreach($resultImage as $value){
+            foreach($resultImage as $key => $value){
 
-                // return response()->json($value);
 
-                 $html.="<div class='content'>
-                        <img loading='lazy' src='".Storage::url('fotos/'.$value->url)."' alt='imagen-".$value->id."' class='sizeTemporal'>
-                        <div class=''>
-                            <input type='checkbox' name='like' class='btnCheckLike' data-id='".$value->like."'>
-                            <span id='count-".$value->id."'>$value->like</span> Me gusta
-                        </div>
-                        <span class=''>".$value->created_at->format('Y/m/d h:i')."</span>
-                        <h3>".$value->user_link->name."<h3>
-                        <form class='form'>
-                            <textarea  name='desc'
-                                rows='1'
-                                name='comentarios'
-                                required value=''
-                                id='input-".$value->id."'
-                                ></textarea>
-                            <p class='error-".$value->id." errorInput'>No puede quedar vacio</p>
-                            <button type='submit'
-                                    class='btn btn-primary btnClickComment'
-                                    data-id='".$value->id."'>
-                                ADD
-                            </button>
-                        </form>
-                        <div>
-                            <a class='linkComentario btnSearchComment'
-                                data-toggle='modal'
-                                data-target='#commentId'
-                                data-id='".$value->id."'
-                                >Ver los COUNT comentarios
-                            </a>
-                        </div>
-                    </div>";
+                $data[$key]=[
+                    'name'=> $value->user_link->name,
+                    'url' =>Storage::url('fotos/'.$value->url),
+                    'commentary' => getFirstComentary($value->id),
+                    'likeCheck' => getCheckLike($value->id),
+                    'like' =>$value->like,
+                    'id'=>$value->id
+
+                ];
+
+
+            // $html.="<div class='instagram-card'>
+            //         <div class='instagram-card-header'>
+            //             <span class='instagram-card-user-name'>".$value->user_link->name."</span>
+            //         </div>
+            //         <div class='instagram-card-image'>
+            //             <img src='". Storage::url('fotos/'.$value->url) ."' alt='imagen-".$value->id."'/>
+            //             <div class='instagram-card-content'>
+            //             <p class='card-description'>".getFirstComentary($value->id)."</p>
+            //             </div>
+            //         </div>
+            //         <div class='instagram-card-footer'>
+            //             <p class='likes' id = heart>
+            //                 <a class='action-icon-liked btnCheckLike' data-id='".$value->id."' onclick='myFunction(".$value->id.")'>
+            //                     <i class='fa ".getCheckLike($value->id)."'>
+            //                     </i>
+            //                 </a><span id='count-".$value->id."'>".$value->like."</span> Me gusta</p>
+
+            //             <a class='linkComentario btnSearchComment'
+            //             data-toggle='modal'
+            //             data-target='#commentId'
+            //             data-id='".$value->id."'>
+            //                     <img src='/img/enviar.png' alt='imagen-".$value->id."' />
+            //             </a>
+            //         </div>
+            //     </div>";
             }
 
-        return response()->json($html, 200);
+            return response()->json(["html"=>$html, "data" =>$data], 200);
+
     }
 
 
