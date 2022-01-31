@@ -76,11 +76,35 @@
                             </a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('admin.index')}}">
+
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown"
+                            class="nav-link dropdown-toggle"
+                            href="#" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ __('Administrador') }}
-                            <!-- todo: popup -->
                         </a>
+
+                        <div class="dropdown-menu dropdown-menu-right"
+                            aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item"
+                               href="{{route('admin.index')}}" >
+
+                               {{ __('Usuarios') }}
+                            </a>
+                            <a class="dropdown-item"
+                               href="#" >
+
+                               {{ __('Videos') }}
+                            </a>
+                            <a class="dropdown-item"
+                                href="#" >
+
+                                {{ __('Exportaciones') }}
+                            </a>
+
+
+                        </div>
                     </li>
 
                     <li class="nav-item dropdown">
