@@ -3,6 +3,9 @@
 
 @section('content')
 
+    <div class="container">
+        <br><br><br>
+    </div>
 
     <div class="container">
     <div>
@@ -16,10 +19,15 @@
                 <button type="button" class="btn btn-yellow" data-toggle="modal"
                 data-target="#upload_id">
                     Sube tu foto Aquí
+
                 </button>
             </div>
 
         </div>
+    </div>
+
+    <div class="container">
+        <br><br>
     </div>
 
     <div class="container mt-4">
