@@ -33,7 +33,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"  href="#" data-toggle="modal" data-target="#modalSubeTuFoto">
+                        <a class="nav-link"  href="#" data-toggle="modal" data-target="#modalAgenda">
                             {{ __('Agenda') }}
                             <!-- todo: popup -->
                         </a>

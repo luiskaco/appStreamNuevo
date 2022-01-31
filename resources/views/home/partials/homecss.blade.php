@@ -2,7 +2,9 @@
     <style>
 
         .main{
-            height: calc(100vh - 87px);
+            /* height: calc(100vh - 87px); */
+            height: auto;
+            padding-top: 30px;
         }
 
         .custom-container-full{
@@ -45,6 +47,7 @@
                 background: #E40571;
                 margin: auto;
                 border: unset;
+                z-index: 1;
             }
 
             .btn{
@@ -71,104 +74,16 @@
                 width: 100%;
             }
 
-            /* MODAL AGENDA */
-            .modal-content{
-                border: 12px solid white;
-                border-radius: 5px;
-            }
-
-            .modal-header{
-                padding: 0 0 15px 0;
-                border: unset;
-            }
-
-            .modal-content-agenda{
-                background-image: url(https://encuentrodelideres.travesia2022.com/assets/images/backgrounds/login-bg.png);
-                background-repeat: no-repeat;
-                background-size: cover;
-                border-radius: 5px;
-                padding: 15px;
-            }
-
-            .modal-body{
-                border-radius: 5px;
-                background: white;
-            }
-
-            .container-title-agenda{
-                background: #e40571;
-                color: white;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border-radius: 5px;
-                padding: 5PX 10PX;
-            }
-
-            .close{
-                color: white !important;
-                font-size: 40px;
-                opacity: revert;
-            }
-
-            .close:focus{
-                outline: none !important;
-            }
-
-            .container-item-agenda-horario {
-                grid-template-columns: 1fr;
-                text-align: center;
-                background: whitesmoke;
-                margin: 10px 0;
-                border-radius: 5px
-            }
-
-             /*FIN  MODAL AGENDA */
-             /* MODAL SOPORTE */
-             .modal-backdrop {
-                position: unset;
-             }
-
-             .close-soporte{
-                color: #7e7d7d !important;
-                position: absolute;
-                right: 0;
-             }
-
-             .container-button-whatsapp{
-                text-align: center;
-                padding: 20px 0 0;
-             }
-
-             /* FIN MODAL SOPORTE */
-
-             /* INICIO FOOTER */
 
 
-             .container-image-financiera{
-                width: 70%;
-                display: flex;
-                justify-content: end;
-                align-items: end;
-             }
-
-             .container-image-financiera img{
-                background-repeat: no-repeat;
-                background-size: contain;
-                width: 170px;
-                height: 65px;
-            }
-
-
-             /* FIN FOOTER */
 
 
           @media (min-width: 320px){
 
 
-            .modal-dialog{
+            /* .modal-dialog{
                 max-width: 600px;
-            }
+            } */
             .modal{
                 padding: 0;
             }
@@ -178,9 +93,7 @@
                 justify-content: center !important;
             }
 
-            /* .container-evento{
-                    padding: 80px 0;
-                } */
+
 
                 .container-chat-video{
                     padding-top: 30px;
@@ -201,11 +114,7 @@
 
 
 
-            .container-item-agenda-horario div{
-                background: whitesmoke;
-                border-radius: 5px;
-                padding: 5px 15px ;
-            }
+
 
             /* INICIO MODAL SOPORTE */
 
@@ -236,11 +145,6 @@
             }
 
 
-
-            footer, .container-footer{
-                position: unset;
-            }
-
             }
 
             @media (min-width: 768px){
@@ -248,55 +152,22 @@
                 min-height: 240px;
             }
 
-                /* .custom-container-full{
-                height: 100vh;
-                } */
 
                 .custom-button-encuesta{
                 margin: auto;
             }
 
-            .container-item-agenda-horario{
-                display: grid;
-                grid-template-columns: 40% 60%;
-                justify-content: center;
-                grid-gap: 10px;
-                padding: 7px 0;
-                background: transparent;
-                margin: 0;
-                border-radius: 0;
-            }
+
 
             /* INICIO MODAL SOPORTE */
 
             .detalle-soporte{
                 font-size: 16px;
-                TEXT-ALIGN: LEFT;
+                text-align: left;
             }
 
             /* FIN MODAL SOPORTE */
 
-
-
-            /* INICIO FOOTER */
-
-            footer{
-                position: absolute;
-                z-index: 1;
-                width: 100%;
-                bottom: 120px;
-             }
-
-
-             .container-footer{
-                display: flex;
-                position: absolute;
-                width: 100%;
-                height: 120px;
-                display: flex;
-                justify-content: end;
-
-             }
 
             }
 

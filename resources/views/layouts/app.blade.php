@@ -206,9 +206,15 @@
 
     @include('layouts.modal')
 
-    {{-- @include('layouts.partials.button-soporte')
 
-    @include("layouts.footer") --}}
+    @include('layouts.partials.button-soporte')
+    @include('layouts.modals.modalAgenda')
+
+    @if(Request::url() !== 'evento/galeria')
+
+     @include("layouts.footer")
+
+    @endif
 
 </body>
 </html>

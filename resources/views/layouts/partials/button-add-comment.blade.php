@@ -31,7 +31,7 @@
             <button  type="button" class="close close-soporte" data-dismiss="modal">&times;</button>
             </div>
 
-            <!-- Modal body -->
+            <!-- Modal body --> 
             <div class="modal-body">
 
                 <div class="container-agenda-horarios">
