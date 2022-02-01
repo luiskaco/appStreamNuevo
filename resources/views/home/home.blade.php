@@ -24,7 +24,15 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-12 col-md-5 col-sm-5 d-flex align-items-center justify-content-center">
-                    <div class="container-chat-video">
+                    <div class="container-chat-video" >
+                        <div id="messagesDiv" ></div>
+                        <div class="input-group mb-3" id="chatescribe">
+                            <input type="text" class="form-control" id='messageInput' placeholder='Chatea Aquí'  aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" onclick="escribe('{{ Auth::user()->name }}')" id="button-addon2">></button>
+                            </div>
+                        </div>
+
                     </div>
                 </div >
             </div>

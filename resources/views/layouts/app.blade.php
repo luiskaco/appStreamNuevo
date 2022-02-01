@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/chat.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,7 +19,25 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
-
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCnO4SGc29qqA3TCl1es8C9Zys9upkJ5p4",
+            authDomain: "encuentros2022-18413.firebaseapp.com",
+            projectId: "encuentros2022-18413",
+            storageBucket: "encuentros2022-18413.appspot.com",
+            databaseURL: "https://encuentros2022-18413-default-rtdb.firebaseio.com/",
+            messagingSenderId: "582400969009",
+            appId: "1:582400969009:web:a33606cb0d017e4debc810",
+            measurementId: "G-DLFSSHJ7D1"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
@@ -94,6 +113,23 @@
             -moz-box-shadow: -4px 2px 5px -6px rgba(217,217,217,0.83);
         }
 
+        #messagesDiv{
+            overflow-y: auto;
+            overflow-x: hidden;
+            height: 92%;
+        }
+        #chatescribe{
+            position: absolute;
+            bottom: 0;
+            width:90%;
+
+        }
+
+        .msjeuser{
+            text-align: left !important;
+            color: #83786F;
+            font-size: 16px;
+        }
         .dropdown-menu .dropdown-item:hover{
             background-color: #FF155B;
         }
@@ -102,18 +138,38 @@
             color: #f9e3cf !important;
         }
 
-        .navbar-nav .nav-item a.actived:after{
-            content: '';
-            /* padding-top: 1rem; */
-            position: absolute;
-            height: 2px;
-            bottom: 0;
-            width: 70%;
-            background: #f9e3cf;
-            margin: auto;
-            left: 0;
-            right: 0;
+
+        @media(min-width:768px){
+            .navbar-nav .nav-item a.actived:after{
+                content: '';
+                /* padding-top: 1rem; */
+                position: absolute;
+                height: 2px;
+                bottom: 0;
+                width: 70%;
+                background: #f9e3cf;
+                margin: auto;
+                left: 0;
+                right: 0;
+            }
         }
+
+
+        /*dropdown*/
+
+        .navbar-light .navbar-toggler {
+            color: rgb(253 253 253 / 50%);
+            border-color: rgb(255 255 255 / 45%);
+        }
+
+        /* .navbar-light .navbar-toggler-icon {
+
+        background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'
+        width='30' height='30'
+        viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 280, 280, 280.5%29'
+        stroke-linecap='round' stroke-miterlimit='10'
+        stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e);
+      } */
 
         /** Formulario **/
         .section-form {
@@ -156,6 +212,26 @@
             background:#C9005C !important;
             border:#C9005C !important;
             border-radius: 6px;
+        }
+
+        @media (min-width: 48em) {
+            #messagesDiv{
+
+                overflow-y: auto;
+                overflow-x: hidden;
+                height: 92%;
+            }
+            #chatescribe{
+                position: absolute;
+                bottom: 0;
+                width:90%;
+
+            }
+            .msjeuser{
+                text-align: left !important;
+                color:#83786F;
+                font-size:18px
+            }
         }
 
         @media screen and (max-width:550px){
@@ -204,17 +280,23 @@
 
     <script defer src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    @include('layouts.modal')
 
+   @guest
+         @include('layouts.modals.modal')
+    @endguest
 
     @include('layouts.partials.button-soporte')
-    @include('layouts.modals.modalAgenda')
 
-    @if(Request::url() !== 'evento/galeria')
+    @auth
 
-     @include("layouts.footer")
+        @include('layouts.modals.modalAgenda')
 
-    @endif
+        @include("layouts.footer")
+
+    @endauth
+
+
+
 
 </body>
 </html>
