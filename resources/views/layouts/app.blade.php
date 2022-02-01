@@ -11,15 +11,19 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/chat.js') }}" defer></script>
 
+    <script src="{{ asset('js/chat.js') }}" defer></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+
+
+
+
+        <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
@@ -113,23 +117,7 @@
             -moz-box-shadow: -4px 2px 5px -6px rgba(217,217,217,0.83);
         }
 
-        #messagesDiv{
-            overflow-y: auto;
-            overflow-x: hidden;
-            height: 92%;
-        }
-        #chatescribe{
-            position: absolute;
-            bottom: 0;
-            width:90%;
 
-        }
-
-        .msjeuser{
-            text-align: left !important;
-            color: #83786F;
-            font-size: 16px;
-        }
         .dropdown-menu .dropdown-item:hover{
             background-color: #FF155B;
         }
@@ -214,25 +202,7 @@
             border-radius: 6px;
         }
 
-        @media (min-width: 48em) {
-            #messagesDiv{
 
-                overflow-y: auto;
-                overflow-x: hidden;
-                height: 92%;
-            }
-            #chatescribe{
-                position: absolute;
-                bottom: 0;
-                width:90%;
-
-            }
-            .msjeuser{
-                text-align: left !important;
-                color:#83786F;
-                font-size:18px
-            }
-        }
 
         @media screen and (max-width:550px){
                 .custom-img{
@@ -281,9 +251,7 @@
     <script defer src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-   @guest
-         @include('layouts.modals.modal')
-    @endguest
+
 
     @include('layouts.partials.button-soporte')
 
@@ -296,7 +264,48 @@
     @endauth
 
 
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous">
+    </script>
 
+        <script src="{{ asset('js/jquery.emojiFace.js') }}" ></script>
+    <script>
+        $('#messageInput').emoji({
+            fontSize:'20px',
+            place:'after'
+        });
 
+        function showEmoji() {
+            $('#listaemojis').show();
+            $('#messageInput').focus();
+            setTimeout(function () {
+                $(document).on('click', closeEmoji);
+            }, 1);
+        }
+
+        function closeEmoji() {
+            $('#listaemojis').hide();
+            $(document).off('click', closeEmoji);
+        }
+        function clickEmoji(ev) {
+
+            if ($('#messageInput').get(0).selectionStart || $('#messageInput').get(0).selectionStart == '0') {
+                var startPos = $('#messageInput').get(0).selectionStart;
+                var endPos = $('#messageInput').get(0).selectionEnd;
+                var primeraparte = $('#messageInput').val().substring(0, startPos);
+                var segundaparte = $('#messageInput').val().substring(endPos, $('#messageInput').val().length)
+                $('#messageInput').val( primeraparte + ev.innerHTML + segundaparte);
+            } else {
+                $('#messageInput').val(ev.innerHTML) ;
+            }
+
+            closeEmoji();
+
+            $('#messageInput').focus();
+            $('#messageInput').selectionStart = startPos + 2;
+            $('#messageInput').selectionEnd = endPos + 2;
+        }
+    </script>
 </body>
 </html>
