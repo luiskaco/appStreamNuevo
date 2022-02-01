@@ -24,7 +24,19 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-12 col-md-5 col-sm-5 d-flex align-items-center justify-content-center">
-                    <div class="container-chat-video">
+                    <div class="container-chat-video" >
+                        <div class="row">
+                        <div id="messagesDiv" ></div>
+                        </div>
+
+<div class="row">
+                            <input type="text" class="form-control" id='messageInput' placeholder='Chatea Aquí' onkeypress="escribepress('{{ Auth::user()->name }}',event)"   aria-describedby="button-addon2">
+
+</div>                       <div class="row">
+                                <button class="btn btn-outline-secondary" type="button"  onclick="escribe('{{ Auth::user()->name }}')" id="button-addon2">></button>
+                            </div>
+
+
                     </div>
                 </div >
             </div>

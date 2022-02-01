@@ -72,10 +72,28 @@
                 height: 100%;
                 min-height: 300px;
                 width: 100%;
+                max-height: 600px;
             }
 
 
+        #messagesDiv{
+            overflow-y: auto;
+            overflow-x: hidden;
+            height: 92%;
+            width: 100%;
+        }
+        #chatescribe{
+            position: absolute;
+            bottom: 0;
+            width:90%;
 
+        }
+
+        .msjeuser{
+            text-align: left !important;
+            color: #83786F;
+            font-size: 16px;
+        }
 
 
           @media (min-width: 320px){
@@ -180,6 +198,27 @@
                 justify-content: space-between !important;
             }
 
+        }
+
+        @media (min-width: 48em) {
+            #messagesDiv{
+
+                overflow-y: auto;
+                overflow-x: hidden;
+                height: 92%;
+                width: 100%;
+            }
+            #chatescribe{
+                position: absolute;
+                bottom: 0;
+                width:90%;
+
+            }
+            .msjeuser{
+                text-align: left !important;
+                color:#83786F;
+                font-size:18px
+            }
         }
 
 
