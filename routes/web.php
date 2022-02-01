@@ -2,6 +2,7 @@
 
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,18 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// Route::get('/link100x', function () {
+//     Artisan::call('storage:link');
+// });
+
+// Route::get('/link', function () {
+//     $target = '/home/azx4xq9pvwmo/appStream01b/storage/app/public';
+//     $shortcut = '/home/azx4xq9pvwmo/public_html/public/storage';
+//     symlink($target, $shortcut);
+//  });
+
+
 
 Route::get('/', function () {
 

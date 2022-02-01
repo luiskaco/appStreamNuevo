@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
+
 class ImageController extends Controller
 {
     /**
@@ -22,6 +23,11 @@ class ImageController extends Controller
      */
     public function index($id = null)
     {
+
+
+        File::link(
+            storage_path('app/public'), public_path('storage')
+        );
         // $resultImage = Images::orderBy('created_at', 'desc')->paginate();
         // return view('muro.index', compact('resultImage'));
     }

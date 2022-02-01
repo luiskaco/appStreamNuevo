@@ -81,7 +81,9 @@
                         </div>
                         <div class="form-group">
 
-                        <label class="text-white"> <input id="agree"
+                        <label class="text-white">
+
+                            <input id="agree"
                             type="checkbox"
                             class="input-style @error('agree') is-invalid @enderror"
                             name="agree"
@@ -90,7 +92,9 @@
                             autofocus
                         > Acepto uso de imagen y uso de datos personales.
 
-                            <span data-toggle="modal" data-target="#permitaccep_id" style="cursor:pointer; color: #C9005C !important; font-weight: bold;">Leer más</span>
+                            <span data-toggle="modal"
+                            data-target="#permitaccep_id"
+                            style="cursor:pointer !important; color: #fff !important; font-weight: 900;">Leer más</span>
                         </label>
 
                         @error('agency')
@@ -101,8 +105,6 @@
 
 
                         </div>
-
-
                         <input id="password"
                             type="hidden"
                             class="form-control
@@ -113,13 +115,15 @@
                             value="12345678"
                          >
                         <div class="form-group ">
-                            <button type="submit" class="btn btn-primary btn-block custom-button">
+                            <button type="submit" class="btn btn-primary btn-block custom-button ">
                                 {{ __('Registrar') }}
                             </button>
                         </div>
                     </form>
+                    <div class="text-center">
+                        <a href="/" class="text-white " >Regresar</a>
+                    </div>
 
-                    <a href="/" class="text-white" >Regresar</a>
                 </div>
 
             </div>

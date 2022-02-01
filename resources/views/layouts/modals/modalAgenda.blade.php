@@ -93,7 +93,7 @@
                     <!-- Modal body -->
                     <div class="modal-body">
                         <div class="container-title-agenda">
-                            <span>la misa para los pecadores terrenales</span>
+                            <span>evento 1</span>
                         </div>
                         <div class="container-agenda-horarios">
                             <div class="container-item-agenda-horario">
@@ -101,7 +101,7 @@
                                     10:00 am - 10:00 pm
                                 </div>
                                 <div class="detalle-agenda">
-                                    misa con el padrecito y el monaguillo Luis
+                                    mevento 1
                                 </div>
                             </div>
                             <div class="container-item-agenda-horario">
@@ -109,7 +109,7 @@
                                     10:00 am - 10:00 pm
                                 </div>
                                 <div class="detalle-agenda">
-                                    misa con el padrecito y el monaguillo Luis
+                                    evento 1
                                 </div>
                             </div>
                             <div class="container-item-agenda-horario">
@@ -117,7 +117,7 @@
                                     10:00 am - 10:00 pm
                                 </div>
                                 <div class="detalle-agenda">
-                                    misa con el padrecito y el monaguillo Luis
+                                    evento 1
                                 </div>
                             </div>
                         </div>

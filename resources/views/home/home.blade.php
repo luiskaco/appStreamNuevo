@@ -30,9 +30,10 @@
             </div>
                 <div class="row col-12">
                     <div class="col-lg-8 col-12 col-md-7 col-sm-7 container-button-encuesta d-flex align-items-center pt-3" style="padding: 0">
-                        <button type="button" class="btn  custom-button-encuesta font-weight-bold text-white" data-toggle="modal" data-target="#modalEncuesta">
+                        <a href="https://forms.office.com/pages/responsepage.aspx?id=iydxLg1u70uA-rdAnenWJ1LnW2IP4pxBihLFC5ne7DdUNjVaU01ZUEZMUE9ENjYyUU5DMllUSzlERi4u" class="btn  custom-button-encuesta font-weight-bold text-white"
+                        target="_blank">
                             Encuesta
-                        </button>
+                        </a>
                     </div>
                 </div>
 

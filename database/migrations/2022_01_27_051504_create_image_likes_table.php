@@ -14,9 +14,11 @@ class CreateImageLikesTable extends Migration
     public function up()
     {
         Schema::create('image_likes', function (Blueprint $table) {
-            $table->id();
-            $table->integer('image_id')->constrained()->onDelete('cascade');
-            $table->integer("user_id")->constrained()->onDelete('cascade');
+            $table->increments('id');
+            $table->integer('image_id')->unsigned();
+            $table->foreign('image_id')->references('id')->on('images')->onDelete('cascade');
+            $table->integer("user_id")->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

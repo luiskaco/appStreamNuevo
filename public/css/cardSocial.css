@@ -49,10 +49,15 @@
 
 /* LINEA*/
 .lineSocial{
-    margin: 80px !important;
+    z-index: 9999;
+    height: 60px;;
 }
 
+
 /** SOCIAL*/
+.space-10{
+    margin-bottom:150px;
+}
 
 .instagram-card{
     background: #ffffff;
@@ -95,7 +100,7 @@
    padding: 20px 20px 5px;
    position: absolute;
    width: 100%;
-   color: white;
+   color: white !important;
    bottom: 0;
    box-sizing: border-box;
 }
@@ -194,10 +199,30 @@ hr{
        }
    }
 
+    .instagram-card-image{
+       position: relative;
+    }
+
+    .instagram-card-content::after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 29%, rgba(0,0,0,0.2) 71%, rgba(0,0,0,0.5) 100%);
+        background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 29%,rgba(0,0,0,0.2) 71%,rgba(0,0,0,0.5) 100%);
+        background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 29%,rgba(0,0,0,0.2) 71%,rgba(0,0,0,0.5) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#80000000',GradientType=0 );
+    }
+
+
 .instagram-card-image img{
    width: 100% !important;
    object-fit: cover;
    max-height: 250px;
+
 }
 
 .comment{
@@ -233,32 +258,113 @@ hr{
    font-size: .8rem;
 }
 
+/*VIDEO STILOS*/
+.container-custom-eventos{
+    padding-top: 30px !important;
+}
+
+.instagram-card-image iframe{
+width: 100%;
+height: auto;
+
+}
+
+hr {
+border-bottom: 0px !important;
+}
+
+.container-cards {
+grid-template-columns: repeat(3, 1fr) !important;
+}
+
+.instagram-card-image:after {
+position: unset !important;
+}
+
+.btn:focus {
+box-shadow: unset !important;
+}
+
+@media screen and (max-width:1024px){
+
+    .container{
+            padding: 0 !important;
+            margin: 0;
+        }
+
+    .container-custom-eventos{
+        padding: 30px 0 60px !important;
+    }
+
+    /* NO BORRAR ES UNA EXCEPCION PARA QUE PUEDA FUNCIONAR EN ESTA PESTAÑA */
+            footer, .container-footer{
+            position: unset !important;
+        }
+}
+
+@media screen and (max-width:768px){
+
+    .container-cards {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media screen and (max-width:550px){
+    .container-custom-eventos{
+        padding: 30px 15px 15px !important;
+    }
+
+    .headingSocial{
+        margin: auto !important;
+    }
+
+    .headingSocial p {
+        font-size: .9rem !important;
+    }
+    .container-cards {
+        grid-template-columns: repeat(1, 1fr) !important;
+    }
+
+}
+
 /** MODAL COMMENTARY **/
 
 /*BODY*/
+
+.containerBodyComentary{
+    overflow-y: scroll;
+    scroll-behavior:auto;
+     height:300px;
+}
+
 .comment_Content{
    display: flex;
    flex-direction: column;
-   gap:3rem;
-   max-width: 100%;;
+   max-width: 100%;
 }
-
 .comment_head{
-   background-color:#e5e5e5;
-
+    display: flex;
+    justify-content: space-between;
+    background-color:#C9005C;
 }
 
-.comment_head span{
-    display: block;
+.comment_head h4{
+    margin:0;
+    padding: 10px;;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+
 }
 
 .comment_body{
    background-color:#f8f8f8;
+   padding: 10px;
+   font-size: 1rem;
+   font-weight: 300;
 }
 
-
-
-/* FOOTER**/
+/* FOOTER modal**/
 .modal-footer.m-footer-flex{
    justify-content: unset !important;
 }
@@ -270,21 +376,28 @@ hr{
 
 }
 
-.form textarea{
-   /* grid-column-start:1;
-   grid-column-end:3; */
-   outline:none;
-   border:none;
-   background-color:#f2f2f2;
-   /* width: 100%; */
+.commentArea{
+    outline:none;
+    background-color: #f8f8f8;;
+    border: 1px solid #f8f8f8;
+    border-radius: 10px;;
+    padding-left: 15px;
+    height: 50px;;
+    color: #969696;
+    transition-property: outline;
+    transition-timing-function: ease-in-out;
+    transition-duration: .3s;
 }
 
-.form textarea:hocus{
-   border: 1px solid #794864;
+.commentArea:focus{
+    outline-color: #C9005C;
+    border: 1px solid #C9005C;
 }
 
 .btnCommentCss{
-   text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btnCommentCss a{

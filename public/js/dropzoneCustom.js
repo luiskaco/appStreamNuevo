@@ -145,14 +145,17 @@
 
                     document.getElementById('modalClose').click();
 
+                    const valueGROUP = document.getElementById('group2022').value
+
                     cardAjax();
 
                     Swal.fire({
                             icon: 'success',
                             title: 'Genial!!!',
                             text: 'Se ha subido correctamente',
-                            footer: '<a href="/evento/galeria">Puede ver su publicación en este enlace</a>'
+
                         })
+                        // footer: `<a href="evento/galeria/${valueGROUP}/event">Puede ver su publicación en este enlace</a>`
                 }
          }
     });

@@ -14,9 +14,11 @@ class CreateImageCommentsTable extends Migration
     public function up()
     {
         Schema::create('image_comments', function (Blueprint $table) {
-            $table->id();
-            $table->integer('image_id')->constrained()->onDelete('cascade');
-            $table->integer('comment_id')->constrained()->onDelete('cascade');
+            $table->increments('id');
+            $table->integer('image_id')->unsigned();
+            $table->foreign('image_id')->references('id')->on('images')->onDelete('cascade');
+            $table->integer('comment_id')->unsigned();
+            $table->foreign('comment_id')->references('id')->on('comments')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -9,4 +9,5 @@ class Image_comment extends Model
     protected $fillable = [
         'image_id', 'comment_id'
     ];
+
 }

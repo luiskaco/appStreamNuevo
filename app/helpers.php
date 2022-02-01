@@ -51,15 +51,24 @@ if (! function_exists('getDateEvent')) {
          // Asiganmos los grupos
          $today = Carbon::now()->format('Y-m-d');
 
-         if($today <= '2022-02-04'){
+         if($today <= '2022-02-04')
+         {
              $grupo = 4;
-         } else if($today <= '2022-02-05'){
+
+         } else if($today <= '2022-02-05')
+         {
              $grupo = 5;
-         } else if($today <= '2022-02-07'){
+
+         } else if($today <= '2022-02-07')
+         {
              $grupo = 7;
-         }else if($today <= '2022-02-09'){
+
+         }else if($today <= '2022-02-09')
+         {
              $grupo = 9;
+
          } else{
+
              $grupo = 10;
          }
 

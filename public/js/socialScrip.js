@@ -105,21 +105,25 @@ axios.post('/evento/galeria/queryComment', params )
         respuesta.data[0].forEach(element => {
 
             const {desc, created_at, user_link} = element[0]
-
-            // console.log(element)
+            const date = new Date(created_at);
+            // const hours =`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+            // console.log(formatAMPM(date))
 
             fragment += `
                 <div class="comment_Content">
                     <div class="comment_head">
-                        <span>
+                        <h4>
                             ${user_link.name}
-                        </span>
-                    <div>
+                        </h4>
+                        <h4>
+                            ${formatAMPM(date)}
+                        </h4>
+                    </div>
                     <div class="comment_body">
                         <p>
                             ${desc}
                         </p>
-                    <div>
+                    </div>
                 </div>`;
         });
 
@@ -127,6 +131,8 @@ axios.post('/evento/galeria/queryComment', params )
 
 })
 }
+
+
 
 function card(data){
 
@@ -195,3 +201,13 @@ function SweetMsg(type, title, text, footer = '', time=0){
     })
 }
 
+function formatAMPM(date) {
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0'+minutes : minutes;
+    var strTime = hours + ':' + minutes + ' ' + ampm;
+    return strTime;
+  }
