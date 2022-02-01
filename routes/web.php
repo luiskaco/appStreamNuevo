@@ -19,17 +19,15 @@ use Illuminate\Support\Facades\Artisan;
 //     Artisan::call('storage:link');
 // });
 
-// Route::get('/link', function () {
-//     $target = '/home/azx4xq9pvwmo/appStream01b/storage/app/public';
-//     $shortcut = '/home/azx4xq9pvwmo/public_html/public/storage';
-//     symlink($target, $shortcut);
-//  });
-
-
+Route::get('/rutas2', function () {
+    $target = '/home/azx4xq9pvwmo/appStream01b/storage/app/public';
+    $shortcut = '/home/azx4xq9pvwmo/public_html/public/storage';
+    symlink($target, $shortcut);
+ });
 
 Route::get('/', function () {
 
-    return view('auth.login');
+    return view('auth.register');
 });
 
 Auth::routes();

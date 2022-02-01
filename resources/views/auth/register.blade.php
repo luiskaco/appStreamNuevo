@@ -103,7 +103,6 @@
                             </span>
                         @enderror
 
-
                         </div>
                         <input id="password"
                             type="hidden"
@@ -121,7 +120,7 @@
                         </div>
                     </form>
                     <div class="text-center">
-                        <a href="/" class="text-white " >Regresar</a>
+                        <a href="/login" class="text-white " >Regresar</a>
                     </div>
 
                 </div>

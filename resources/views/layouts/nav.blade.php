@@ -56,24 +56,25 @@
                             aria-labelledby="navbarDropdown">
                             <a class="dropdown-item"
                                href="{{ route('galeria.eventID',['4']) }}" >
-                               {{ __('Grupo 01') }}
+                               {{ __('Líderes') }}
                             </a>
                             <a class="dropdown-item"
                                 href="{{ route('galeria.eventID',['5']) }}" >
-                                {{ __('Grupo 02') }}
+                                {{ __('División Nor Oriente CI, Norte CG, Oriente CG') }}
                             </a>
                             <a class="dropdown-item"
                                 href="{{ route('galeria.eventID',['7']) }}" >
-                                {{ __('Grupo 03') }}
+                                {{ __('División Centro CI y CG') }}
                             </a>
                             <a class="dropdown-item"
                                  href="{{ route('galeria.eventID',['9']) }}" >
-                                 {{ __('Grupo 04') }}
+                                 {{ __('División Sur CI y CG:') }}
                             </a>
                             <a class="dropdown-item"
                                 href="{{ route('galeria.eventID',['10']) }}" >
-                                {{ __('Grupo 05') }}
+                                {{ __('Ceas') }}
                             </a>
+
                         </div>
                     </li>
 

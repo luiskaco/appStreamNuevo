@@ -6,6 +6,7 @@
 
 @section('content')
 <div class="main">
+
         <div class="custom-container-full container-evento" >
             <div class="row col-12" style="padding: 0">
                 <div class="row col-12" style="padding: 0">
