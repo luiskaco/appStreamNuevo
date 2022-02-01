@@ -4,14 +4,18 @@ function escribe(nombre) {
 
     var name = nombre;
     var text = $('#messageInput').val();
+    var fijado = false;
     // myDataRef.push({name: name, text: text});
     myDataRef.push({
         name: name,
-        text: text
+        text: text,
+        fijado: fijado
     });
     $('#messageInput').val('');
 
 };
+
+
 myDataRef.on('child_added', function(snapshot) {
     var message = snapshot.val();
     displayChatMessage(message.name, message.text);

@@ -29,7 +29,7 @@
                         <div class="input-group mb-3" id="chatescribe">
                             <input type="text" class="form-control" id='messageInput' placeholder='Chatea Aquí'  aria-describedby="button-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button" onclick="escribe('{{ Auth::user()->name }}')" id="button-addon2">></button>
+                                <button class="btn btn-outline-secondary" type="button"  onclick="escribe('{{ Auth::user()->name }}')" id="button-addon2">></button>
                             </div>
                         </div>
 
