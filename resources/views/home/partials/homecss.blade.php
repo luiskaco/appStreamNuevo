@@ -98,10 +98,6 @@
 
           @media (min-width: 320px){
 
-
-            /* .modal-dialog{
-                max-width: 600px;
-            } */
             .modal{
                 padding: 0;
             }
@@ -109,6 +105,10 @@
               .container-title-button {
                 text-align: center !important;
                 justify-content: center !important;
+            }
+
+            .container-button-encuesta {
+                padding-top: 50px !important;
             }
 
 
@@ -128,6 +128,10 @@
 
             .custom-button-encuesta{
                 margin: unset;
+            }
+
+            .container-chat-video {
+                margin-top: 35px;
             }
 
 
@@ -175,6 +179,10 @@
                 margin: auto;
             }
 
+            .container-button-encuesta {
+                padding-top: 0px !important;
+            }
+
 
 
             /* INICIO MODAL SOPORTE */
@@ -196,6 +204,11 @@
 
             .container-title-button {
                 justify-content: space-between !important;
+            }
+
+            .container-chat-video {
+                z-index: 1;
+                margin-top: 0;
             }
 
         }

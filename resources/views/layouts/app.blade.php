@@ -60,7 +60,7 @@
         </main>
     </div>
 
-
+    @yield('js')
 
     <script defer src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -82,14 +82,71 @@
         <input type="hidden" name="group2022" value="{{Auth::user()->group}}" id="group2022" />
     @endauth
 
-    {{-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    <script src="{{ asset('js/chat.js') }}" defer></script>
+
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCnO4SGc29qqA3TCl1es8C9Zys9upkJ5p4",
+            authDomain: "encuentros2022-18413.firebaseapp.com",
+            projectId: "encuentros2022-18413",
+            storageBucket: "encuentros2022-18413.appspot.com",
+            databaseURL: "https://encuentros2022-18413-default-rtdb.firebaseio.com/",
+            messagingSenderId: "582400969009",
+            appId: "1:582400969009:web:a33606cb0d017e4debc810",
+            measurementId: "G-DLFSSHJ7D1"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-    crossorigin="anonymous" ></script> --}}
+    crossorigin="anonymous">
 
+    </script>
 
+        <script src="{{ asset('js/jquery.emojiFace.js') }}" ></script>
+        <script>
+        $('#messageInput').emoji({
+            fontSize:'20px',
+            place:'after'
+        });
 
+        function showEmoji() {
+            $('#listaemojis').show();
+            $('#messageInput').focus();
+            setTimeout(function () {
+                $(document).on('click', closeEmoji);
+            }, 1);
+        }
 
+        function closeEmoji() {
+            $('#listaemojis').hide();
+            $(document).off('click', closeEmoji);
+        }
+        function clickEmoji(ev) {
 
-    @yield('js')
+            if ($('#messageInput').get(0).selectionStart || $('#messageInput').get(0).selectionStart == '0') {
+                var startPos = $('#messageInput').get(0).selectionStart;
+                var endPos = $('#messageInput').get(0).selectionEnd;
+                var primeraparte = $('#messageInput').val().substring(0, startPos);
+                var segundaparte = $('#messageInput').val().substring(endPos, $('#messageInput').val().length)
+                $('#messageInput').val( primeraparte + ev.innerHTML + segundaparte);
+            } else {
+                $('#messageInput').val(ev.innerHTML) ;
+            }
+
+            closeEmoji();
+
+            $('#messageInput').focus();
+            $('#messageInput').selectionStart = startPos + 2;
+            $('#messageInput').selectionEnd = endPos + 2;
+        }
+        </script>
 </body>
 </html>

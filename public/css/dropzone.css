@@ -29,6 +29,35 @@
 
     }
 
+
+    .dropzone{
+      background-image:url('../img/upload-photo.png') !important;
+      background-repeat: no-repeat !important;
+      background-size: auto !important;
+      background-position: center !important;
+      min-height: 150px;
+        padding: 20px 20px !important;
+        border: 1px dashed #e5e7eb !important;
+        cursor: pointer !important;
+
+    }
+
+    
+
+    .dz-button, .dz-success-mark, .dz-error-mark{
+        display: none !important;
+    }
+
+    .dropzone .dz-preview.dz-image-preview {
+        background: #fff;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        grid-gap: 10px;
+    }
+
         @media(min-width: 768px){
             .dropzone .dz-message .dz-button {
                 font-size:1.5rem;
@@ -57,18 +86,21 @@
 
     /** Modal Upload **/
     .modal-header{
-        /* background-color: #fd9e02; */
+        padding: 15px 0 0 !important;
+        border: unset;
+        position: relative;
         color: #000;
         font-weight: 700;
         font-size: 2rem !important;
         text-align: center;
     }
 
-    .modal-header  .close {
-        color: #fff;
-        font-size: 2rem !important;
-
-    }
+    .modal-header .close {
+        color: #7e7d7d !important;
+        position: absolute;
+        right: 0;
+        margin:-30px -10px 0 0 !important
+      }
 
     .modal-footer{
         display:flex;

@@ -87,7 +87,7 @@
                     <!-- Modal Header -->
                     <div class="modal-header">
                     <h4 class="modal-title font-weight-normal text-white custom-form-title">Agenda</h4>
-                    <button style="color: white;" type="button" class="close" data-dismiss="modal">×</button>
+                    <button style="color: white !important;" type="button" class="close" data-dismiss="modal">×</button>
                     </div>
 
                     <!-- Modal body -->

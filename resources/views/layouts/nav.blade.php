@@ -9,21 +9,23 @@
             <img src="{{ url('img/logoHorizontal.png') }}" alt="logo princicpal">
         </a>
 
-        <button class="navbar-toggler"
+        <button id="menuToggle" class="navbar-toggler"
                 type="button"
                 data-toggle="collapse"
                 data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent"
                 aria-expanded="false"
                 aria-label="{{ __('Toggle navigation') }}">
-            <span class="navbar-toggler-icon"></span>
+            <input type="checkbox" />
+            <span></span>
+            <span></span>
+            <span></span>
         </button>
+
+
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
-
-            </ul>
 
             <ul class="navbar-nav ml-auto">
 
@@ -54,30 +56,57 @@
 
                         <div class="dropdown-menu dropdown-menu-right"
                             aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item"
-                               href="{{ route('galeria.eventID',['4']) }}" >
-                               {{ __('Líderes') }}
-                            </a>
 
-                            <a class="dropdown-item"
-                                href="{{ route('galeria.eventID',['5']) }}" >
-                                {{ __('División Nor Oriente CI, Norte CG, Oriente CG') }}
-                            </a>
-                            <a class="dropdown-item"
-                                href="{{ route('galeria.eventID',['7']) }}" >
-                                {{ __('División Centro CI y CG') }}
-                            </a>
-                            <a class="dropdown-item"
-                                 href="{{ route('galeria.eventID',['9']) }}" >
-                                 {{ __('División Sur CI y CG:') }}
-                            </a>
-                            <a class="dropdown-item"
-                                href="{{ route('galeria.eventID',['10']) }}" >
-                                {{ __('Ceas') }}
-                            </a>
+                            @if (Carbon\carbon::now()->format('Y-m-d') >= "2022-02-04" || Auth::user()->role == 'admin' || Auth::user()->group == 4)
 
+                                <a class="dropdown-item"
+                                    href="{{ route('galeria.eventID',['4']) }}" >
+                                    {{ __('Líderes') }}
+                                </a>
+
+                            @endif
+
+                            @if (Carbon\carbon::now()->format('Y-m-d') >= "2022-02-05" || Auth::user()->role == 'admin' || Auth::user()->group == 5)
+
+                                <a class="dropdown-item"
+                                    href="{{ route('galeria.eventID',['5']) }}" >
+                                    {{ __('División Nor Oriente CI, Norte CG, Oriente CG') }}
+                                </a>
+
+                            @endif
+
+
+                            @if (Carbon\carbon::now()->format('Y-m-d') >= "2022-02-07" || Auth::user()->role == 'admin' || Auth::user()->group == 7)
+
+                                <a class="dropdown-item"
+                                    href="{{ route('galeria.eventID',['7']) }}" >
+                                    {{ __('División Centro CI y CG') }}
+                                </a>
+
+                            @endif
+
+
+                            @if (Carbon\carbon::now()->format('Y-m-d') >= "2022-02-09" || Auth::user()->role == 'admin' || Auth::user()->group == 9)
+
+                                <a class="dropdown-item"
+                                    href="{{ route('galeria.eventID',['9']) }}" >
+                                    {{ __('División Sur CI y CG:') }}
+                                </a>
+
+                            @endif
+
+                            @if (Carbon\carbon::now()->format('Y-m-d') >= "2022-02-10" || Auth::user()->role == 'admin' || Auth::user()->group == 10)
+
+                                <a class="dropdown-item"
+                                    href="{{ route('galeria.eventID',['10']) }}" >
+                                    {{ __('Ceas') }}
+                                </a>
+
+                            @endif
                         </div>
                     </li>
+
+                    @if(Auth::user()->role === 'admin')
 
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown"
@@ -86,6 +115,8 @@
                             aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ __('Administrador') }}
                         </a>
+
+
 
                         <div class="dropdown-menu dropdown-menu-right"
                             aria-labelledby="navbarDropdown">
@@ -97,16 +128,17 @@
                             <a class="dropdown-item"
                                href="#" >
 
-                               {{ __('Videos') }}
+                               {{ __('Videos -dev') }}
                             </a>
                             <a class="dropdown-item"
                                 href="#" >
 
-                                {{ __('Agenda') }}
+                                {{ __('Agenda - dev') }}
                             </a>
-
                         </div>
+
                     </li>
+                    @endif
 
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown"

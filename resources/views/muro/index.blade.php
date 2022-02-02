@@ -2,47 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
 
-
-    /* NO BORRAR ES UNA EXCEPCION PARA QUE PUEDA FUNCIONAR EN ESTA PESTAÑA */
-        footer, .container-footer{
-            position: unset !important;
-        }
-
-        .container-custom-eventos{
-            padding-top: 30px !important;
-        }
-
-        @media screen and (max-width:1024px){
-
-            .container{
-                    padding: 0 !important;
-                    margin: 0;
-                }
-
-            .container-custom-eventos{
-                padding-top: 30px !important;
-            }
-        }
-
-
-
-        @media screen and (max-width:550px){
-            .container-custom-eventos{
-                padding: 30px 15px 15px !important;
-            }
-
-            .headingSocial{
-                margin: auto !important;
-            }
-
-            .headingSocial p {
-                font-size: .9rem !important;
-            }
-
-        }
-    </style>
 
 
 <div class="container container-custom-eventos">
@@ -52,7 +12,7 @@
 
         <input type="hidden" name="grupoID" value="{{$id}}" id="groupID"/>
 
-            <div class="container mt-4">
+            <div class="container">
                 <div class="row justify-content-center flex-column text-center headingSocial">
                     <h3>Galería</h3>
                     <p>Sube tu fotografía y cuéntanos cuál es tu sueño o meta para la Travesía 2022</p>
@@ -64,9 +24,6 @@
     </div>
 
 
-    <div class="container">
-        <br><br>
-    </div>
 
     <div class="container mt-4">
         <div class="row justify-content-center">
@@ -113,10 +70,8 @@
         </div>
     </div>
 
-</div><!-- Global -->
+</div>
 
-    <div class="space-10">
-    </div>
 
 
 @include('layouts.modals.modalUpload')
@@ -137,5 +92,57 @@
     <script src="{{asset('js/socialScrip.js')}}" ></script>
 
 @endsection
+
+
+<style>
+
+
+    /* NO BORRAR ES UNA EXCEPCION PARA QUE PUEDA FUNCIONAR EN ESTA PESTAÑA */
+        footer, .container-footer{
+            position: unset !important;
+        }
+
+        .container-custom-eventos{
+            padding-top: 30px !important;
+        }
+
+        @media screen and (max-width:1024px){
+
+            .container{
+                    padding: 0 !important;
+                    margin: 0;
+            }
+            
+            .container-custom-eventos {
+                padding: 30px 0 60px !important;
+                margin: auto;
+            }
+
+            .container-custom-eventos{
+                padding-top: 30px !important;
+            }
+        }
+
+
+
+        @media screen and (max-width:550px){
+            .container-custom-eventos{
+                padding: 30px 15px 15px !important;
+            }
+
+            .headingSocial{
+                margin: auto !important;
+            }
+
+            .headingSocial p {
+                font-size: .9rem !important;
+            }
+
+            .container-cards {
+                padding: 0 15px !important;
+            }
+
+        }
+    </style>
 
 

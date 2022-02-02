@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <div class="main">
     <div class="container">
         <div class="row">
@@ -103,6 +104,7 @@
                             </span>
                         @enderror
 
+
                         </div>
                         <input id="password"
                             type="hidden"
@@ -132,6 +134,20 @@
 
     </div> <!-- container -->
 </div>
+@endsection
+
+@section('css')
+    <style>
+
+    @media screen and (max-width:550px) {
+        .main {
+            height: auto;
+            padding: 50px 0;
+        }
+    }
+
+    </style>
+
 @endsection
 
 

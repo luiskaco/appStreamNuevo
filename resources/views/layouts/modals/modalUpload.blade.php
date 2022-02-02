@@ -1,9 +1,15 @@
+ 
+  
+
+  
   <!-- Modal Upload -->
   <div class="modal fade" id="upload_id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Comparte tu historia</h5>
+          <h4 class="modal-title font-weight-bold text-black mx-auto" id="exampleModalLabel">
+            Comparte tu historia
+          </h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -14,7 +20,9 @@
 
                 <div class="form-group">
                     <label for="dropzonePhoto" class="text-white">Cargar Imagen</label>
-                    <div id="dropzonePhoto" class="dropzone rounded bgGray100"></div>
+                    <div id="dropzonePhoto" class="dropzone rounded bgGray100">
+                    
+                    </div>
                     <span class="msgFormat">Formatos Permitidos: JPG, JPEG, PNG 1200 x 720 pixeles. Peso máximo 2MB por imagen</span>
                     {{-- input para guardar el nombre en Wla BD --}}
                     <input type="hidden" required name="imagen" id="imagen" value="{{old('imagen')}}">

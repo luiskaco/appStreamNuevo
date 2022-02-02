@@ -3,13 +3,7 @@
 .headingSocial h3{
     font-size:1.5rem;
     color:#fff;
-    font-weight: 600;
-}
-
-@media(min-width:768px){
-    .headingSocial h3{
-        font-size:3rem;
-    }
+    font-weight: 500;
 }
 
 .headingSocial p{
@@ -18,8 +12,13 @@
 }
 
 @media(min-width:768px){
+
+    .headingSocial h3{
+        font-size: 2.5rem;
+    }
+
     .headingSocial p{
-        font-size:1.5rem;
+        font-size:1.1rem;
     }
 }
 
@@ -27,25 +26,6 @@
     margin: 30px;
 }
 
-/* .btn-yellow{
-    color: #fff;
-    background-color: #FFA300 !important;
-    border-color: #FFA300;
-    font-size: 1rem;
-    font-weight: bold;
-}
-
-@media(min-width:768px){
-    .btn-yellow{
-        font-size: 2rem;
-    }
-} */
-
-/* .btn-yellow:hover{
-    color: #fff !important;
-    background-color: #ffa200cb !important;
-    border-color: #ffa200cb;
-} */
 
 
 /* boton subir foto */
@@ -69,8 +49,7 @@
 
 /* LINEA*/
 .lineSocial{
-    z-index: 9999;
-    height: 60px;;
+    height: 20px;
 }
 
 
@@ -179,11 +158,10 @@
 
 
 hr{
-   border: none;
-   border-bottom: 1px solid #ccc;
-   margin-top: 30px;
-    margin-bottom: 35px;
-
+    border: 0;
+    border-bottom: 1px solid #fff;
+    margin-top: 30px;
+    margin-bottom: 50px;
 }
 
 .action-icon-liked {
@@ -224,6 +202,7 @@ hr{
 @media(min-width:768px){
     .container-cards{
         grid-template-columns: repeat(2, 1fr) ;
+        width: 100%;
     }
     .instagram-card-footer{
       font-size: 1rem;

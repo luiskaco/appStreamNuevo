@@ -6,7 +6,6 @@
 
 @section('content')
 <div class="main">
-
         <div class="custom-container-full container-evento" >
             <div class="row col-12" style="padding: 0">
                 <div class="row col-12" style="padding: 0">
@@ -18,10 +17,11 @@
                         </button> --}}
 
                         @include('layouts.partials.button-popup-add-photo')
+                        @include('layouts.modals.modalUpload')
                     </div>
                     <div class="col-lg-12 col-12 col-md-12 col-sm-12 container-video">
 
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/HTdd8QxifbY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Tmd_uPFwK5g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="col-lg-4 col-12 col-md-5 col-sm-5 d-flex align-items-center justify-content-center">
@@ -52,6 +52,18 @@
 
             </div> <!-- end row -->
         </div>
+@endsection
+
+@section('css')
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.min.css" integrity="sha512-jU/7UFiaW5UBGODEopEqnbIAHOI8fO6T99m7Tsmqs2gkdujByJfkCbbfPSN4Wlqlb9TGnsuC0YgUgWkRBK7B9A==" crossorigin="anonymous" />
+     <link href="{{asset('css/dropzone.css')}}" rel="stylesheet">
+
+@endsection
+
+@section('js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.js" integrity="sha512-4p9OjnfBk18Aavg91853yEZCA7ywJYcZpFt+YB+p+gLNPFIAlt2zMBGzTxREYh+sHFsttK0CTYephWaY7I3Wbw==" crossorigin="anonymous"></script>
+    <script src="{{asset('js/dropzoneCustom.js')}}" ></script>
+
 @endsection
 
 

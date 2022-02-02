@@ -48,7 +48,7 @@
 
     .container-button-soporte{
         position: fixed;
-        right: -90px;
+        right: -80px;
         top: 50%;
         bottom: 0;
         transform: rotate(-90deg);
@@ -89,6 +89,10 @@
             color: #7e7d7d !important;
             display: block;
             margin: -30px -10px 0 0 !important;
+        }
+
+        .container-info-soporte{
+            text-align: justify;
         }
 
     }
