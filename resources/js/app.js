@@ -36,7 +36,7 @@ const app = new Vue({
     el: '#app',
 });
 
-// botn
+// bg dinamos de registro
 const btnSInput = document.querySelectorAll(".bgInput");
 
 btnSInput.forEach((enlace, index) => {
@@ -85,63 +85,41 @@ btnSInput.forEach((enlace, index) => {
 
 });
 
-
-
-
-
-
-
-// function getUserCount(){
-//     const pathUser = document.getElementById('getPathUser').value
-
-//     axios.post(pathUser)
-//     .then(respuesta => {
-//         const rspnaResul = document.getElementById('userCount');
-//               rspnaResul.textContent = parseInt(respuesta.data)
-
-//     });
-// }
-
-function getUserCountLine(){
-    const PathUserLine = document.getElementById('getPathUserLine').value
-
-    axios.post(PathUserLine)
-    .then(respuesta => {
-        const rspnaResul = document.getElementById('userCountLine');
-              rspnaResul.innerHTML = ` <p>${parseInt(respuesta.data)}</p>`
-
-    });
-}
-
-/** PRIMERA VEZ*/
-
-getUserCountLine();
-
+// Select de grupos
 const selectGroup = document.getElementById('selectGroup')
     selectGroup.addEventListener('change', e => {
 
     let selectID = e.target.value;
+    // obtenemos la ruta de la table
     let pathRoute = document.getElementById('getPathTable').value
+    // Armamos la ruta para lo grupos en el data table
     let pathNew = `${pathRoute}/${selectID}`;
 
+    // ASigamos el grupo para el excel
+    document.getElementById('groupExcelID').value = selectID
+
+        // Reiniciamos el datatable
          otable.destroy();
          otable.ajax.reload( null, false );
 
+         // Invocamos la tabla nuevamentes
          tableUser(pathNew);
 });
 
 
-/** END* */
-
 /** CRONOMETRADO**/
 setInterval(() => {
+    // Consultamos usuarios en linea
     getUserCountLine();
-
+    reloadDinamic();
 
 }, 60000);
 /** END */
 
-// llmado de table
+// Consultamos usuarmo la primera vez
+getUserCountLine();
+
+// invocamos tabla la primera vez
 tableUser();
 
 
@@ -207,7 +185,38 @@ function tableUser (pathUser = null) {
     );
 }
 
+function reloadDinamic () {
+      // Reiniciamos el datatable
+      otable.destroy();
+      otable.ajax.reload( null, false );
 
+      tableUser();
+}
+
+
+// function getUserCount(){
+//     const pathUser = document.getElementById('getPathUser').value
+
+//     axios.post(pathUser)
+//     .then(respuesta => {
+//         const rspnaResul = document.getElementById('userCount');
+//               rspnaResul.textContent = parseInt(respuesta.data)
+
+//     });
+// }
+
+
+// Ajax de usuario en linea
+function getUserCountLine(){
+    const PathUserLine = document.getElementById('getPathUserLine').value
+
+    axios.post(PathUserLine)
+    .then(respuesta => {
+        const rspnaResul = document.getElementById('userCountLine');
+              rspnaResul.innerHTML = ` <p>${parseInt(respuesta.data)}</p>`
+
+    });
+}
 
 
 

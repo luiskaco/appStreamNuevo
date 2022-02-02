@@ -2,9 +2,31 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Contracts\View\View;
+use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Concerns\FromView;
+
+// Excel
+class InvoicesExport implements FromView
+{
+    public $data;
+
+    public function __construct($data){
+      $this->data = $data;
+    }
+
+    public function view(): View
+    {
+        return view('admin.excel', [
+            'Users' => $this->data,
+        ]);
+    }
+}
+
+
 
 class AdminController extends Controller
 {
@@ -15,65 +37,83 @@ class AdminController extends Controller
      */
     public function index()
     {
-
-
-        $userCount = User::all()->count();
-
-
-        $acountUser = USer::all()->count();
-
-        return view('admin.index', compact('acountUser'));
+        return view('admin.index');
     }
 
 
-    public function getTable($group = null){
+    public function excelUser (Request $request) {
+        $value = $request->groupExcel;
 
-        if($group == 0){
-            $user =  User::where('group', '!=', $group)->get();
+        if($value == 0){
+            $user =  User::where('group', '!=', $value)->get();
         }else{
-            $user = User::where('group', $group)->get();
+            $user = User::where('group', $value)->get();
+        }
+
+        if(!count($user) > 0){
+            return  view('admin.index');
+        }else{
+            return Excel::download(new InvoicesExport($user), 'Encuentros2022.xlsx');
         }
 
 
-        // 'name', 'email', 'password','dni', 'agency','status','line','role','group'
-        return Datatables($user)
-            ->addColumn('id', function ($val) {
-                return $val->id;
-            })
-            ->addColumn('name', function ($val) {
-                return $val->name;
-            })
-            ->addColumn('agency', function ($val) {
-                return $val->agency;
-            })
-            ->addColumn('group', function ($val) {
-                return  getSerarhName($val->group);
-            })
-            ->addColumn('line', function ($val) {
+    }
 
-                if($val->line){
-                    $lin = "<span class='badge badge-pill badge-success'>En Linea</span>";
+
+    public function getTable(Request $request,  $group = null){
+
+
+        if($request->ajax()){
+
+
+                if($group == 0){
+                    $user =  User::where('group', '!=', $group)->get();
                 }else{
-                    $lin = "<span class='badge badge-pill badge-danger'>No conectado</span>";
+                    $user = User::where('group', $group)->get();
                 }
-                return $lin;
-            })
-            ->addColumn('status', function ($val) {
 
-                if($val->status == 1){
-                    $status = "<span class='badge badge-pill badge-primary'>Activa</span>";
-                }else{
-                    $status = "<span class='badge badge-pill badge-warning'>Inactiva</span>";
-                }
-                return $status;
-            })
 
-            ->addColumn('action', function ($val){
-                return "";
-            })
-            ->rawColumns(['action','line','status'])
+                // 'name', 'email', 'password','dni', 'agency','status','line','role','group'
+                return Datatables($user)
+                    ->addColumn('id', function ($val) {
+                        return $val->id;
+                    })
+                    ->addColumn('name', function ($val) {
+                        return $val->name;
+                    })
+                    ->addColumn('agency', function ($val) {
+                        return $val->agency;
+                    })
+                    ->addColumn('group', function ($val) {
+                        return  getSerarhName($val->group);
+                    })
+                    ->addColumn('line', function ($val) {
 
-            ->make(true);
+                        if($val->line){
+                            $lin = "<span class='badge badge-pill badge-success'>En Linea</span>";
+                        }else{
+                            $lin = "<span class='badge badge-pill badge-danger'>No conectado</span>";
+                        }
+                        return $lin;
+                    })
+                    ->addColumn('status', function ($val) {
+
+                        if($val->status == 1){
+                            $status = "<span class='badge badge-pill badge-primary'>Activa</span>";
+                        }else{
+                            $status = "<span class='badge badge-pill badge-warning'>Inactiva</span>";
+                        }
+                        return $status;
+                    })
+
+                    ->addColumn('action', function ($val){
+                        return "";
+                    })
+                    ->rawColumns(['action','line','status'])
+
+                    ->make(true);
+
+        }
     }
 
     public function getCountUser(Request $request) {

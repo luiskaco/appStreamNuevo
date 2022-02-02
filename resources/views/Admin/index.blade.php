@@ -4,6 +4,7 @@
 
 <input type="hidden" value="{{route('admin.getTable')}}" id="getPathTable"/>
 <input type="hidden" value="{{route('admin.getCountUser')}}" id="getPathUser"/>
+
 <input type="hidden"
         value="{{route('admin.getCountUserLine')}}"
         class="getPathUserLine"
@@ -11,7 +12,7 @@
 
 <div class="container mt-4" >
 
-    <div class="row justify-content-center">
+    <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="container">
@@ -30,14 +31,30 @@
 
                                 </div>
 
-                                @if (Carbon\carbon::now()->format('Y-m-d') >= "2022-02-04")
-                                    Es igual
-                                @else
-                                    no es igual
+                                @if (Carbon\carbon::now()->format('Y-m-d') >= "2022-02-04" || Auth::user()->role == 'admin')
+                                    4
                                 @endif
+
+                                @if (Carbon\carbon::now()->format('Y-m-d') >= "2022-02-05" || Auth::user()->role == 'admin')
+                                    5
+                                @endif
+
+                                @if (Carbon\carbon::now()->format('Y-m-d') >= "2022-02-07" || Auth::user()->role == 'admin')
+                                    7
+                                @endif
+
+                                @if (Carbon\carbon::now()->format('Y-m-d') >= "2022-02-09" || Auth::user()->role == 'admin')
+                                    9
+                                @endif
+
+                                @if (Carbon\carbon::now()->format('Y-m-d') >= "2022-02-10" || Auth::user()->role == 'admin')
+                                    10
+                                @endif
+
+
                         </div>
                         <div class="col-md-4 col-sm-12">
-                            <form>
+                            <form >
                                 <div class="form-group">
                                 <label for="exampleFormControlSelect2">Filtrar por grupo</label>
                                 <select class="form-control" id="selectGroup">
@@ -52,10 +69,13 @@
                             </form>
                         </div>
                         <div class="col-md-4 col-sm-12">
-                            <form>
+                            <form action="{{route('admin.generateExcel')}}" method="post">
+                                @csrf
+                                <input type="hidden" name="groupExcel" value="0" id="groupExcelID"/>
                                 <div class="form-group ">
                                     <label for="exampleFormControlSelect2">Generar Reporte</label>
-                                    <button type="button" class="form-control btn btn-outline-success block">Generar Reporte</button>
+                                    <button type="submit" class="form-control btn btn-outline-success block">Generar Reporte</button>
+
                                 </div>
                             </form>
                         </div>
@@ -90,6 +110,8 @@
 
     </div>
 
+    <br><br><br>
+    <br><br><br>
     <br><br><br>
     <br><br><br>
 

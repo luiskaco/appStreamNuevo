@@ -65389,7 +65389,7 @@ Vue.component('enviar-component', __webpack_require__(/*! ./components/EnviarMsn
 
 var app = new Vue({
   el: '#app'
-}); // botn
+}); // bg dinamos de registro
 
 var btnSInput = document.querySelectorAll(".bgInput");
 btnSInput.forEach(function (enlace, index) {
@@ -65430,44 +65430,34 @@ btnSInput.forEach(function (enlace, index) {
       }
     }
   });
-}); // function getUserCount(){
-//     const pathUser = document.getElementById('getPathUser').value
-//     axios.post(pathUser)
-//     .then(respuesta => {
-//         const rspnaResul = document.getElementById('userCount');
-//               rspnaResul.textContent = parseInt(respuesta.data)
-//     });
-// }
+}); // Select de grupos
 
-function getUserCountLine() {
-  var PathUserLine = document.getElementById('getPathUserLine').value;
-  axios.post(PathUserLine).then(function (respuesta) {
-    var rspnaResul = document.getElementById('userCountLine');
-    rspnaResul.innerHTML = " <p>".concat(parseInt(respuesta.data), "</p>");
-  });
-}
-/** PRIMERA VEZ*/
-
-
-getUserCountLine();
 var selectGroup = document.getElementById('selectGroup');
 selectGroup.addEventListener('change', function (e) {
-  var selectID = e.target.value;
-  var pathRoute = document.getElementById('getPathTable').value;
-  var pathNew = "".concat(pathRoute, "/").concat(selectID);
+  var selectID = e.target.value; // obtenemos la ruta de la table
+
+  var pathRoute = document.getElementById('getPathTable').value; // Armamos la ruta para lo grupos en el data table
+
+  var pathNew = "".concat(pathRoute, "/").concat(selectID); // ASigamos el grupo para el excel
+
+  document.getElementById('groupExcelID').value = selectID; // Reiniciamos el datatable
+
   otable.destroy();
-  otable.ajax.reload(null, false);
+  otable.ajax.reload(null, false); // Invocamos la tabla nuevamentes
+
   tableUser(pathNew);
 });
-/** END* */
-
 /** CRONOMETRADO**/
 
 setInterval(function () {
+  // Consultamos usuarios en linea
   getUserCountLine();
+  reloadDinamic();
 }, 60000);
 /** END */
-// llmado de table
+// Consultamos usuarmo la primera vez
+
+getUserCountLine(); // invocamos tabla la primera vez
 
 tableUser();
 
@@ -65542,6 +65532,30 @@ function tableUser() {
     bAutoWidth: false,
     order: [[0, "desc"]],
     "aaSorting": []
+  });
+}
+
+function reloadDinamic() {
+  // Reiniciamos el datatable
+  otable.destroy();
+  otable.ajax.reload(null, false);
+  tableUser();
+} // function getUserCount(){
+//     const pathUser = document.getElementById('getPathUser').value
+//     axios.post(pathUser)
+//     .then(respuesta => {
+//         const rspnaResul = document.getElementById('userCount');
+//               rspnaResul.textContent = parseInt(respuesta.data)
+//     });
+// }
+// Ajax de usuario en linea
+
+
+function getUserCountLine() {
+  var PathUserLine = document.getElementById('getPathUserLine').value;
+  axios.post(PathUserLine).then(function (respuesta) {
+    var rspnaResul = document.getElementById('userCountLine');
+    rspnaResul.innerHTML = " <p>".concat(parseInt(respuesta.data), "</p>");
   });
 }
 

@@ -62,6 +62,9 @@ Route::group(['middleware' => 'web', 'middleware' => 'auth'], function () {
         Route::resource('/video', 'Video\VideoController');
 
 
+        // Ezcel
+        Route::post('/admin/generateExcel', 'Admin\AdminController@excelUser')->name('admin.generateExcel');
+
         // table
         Route::get('/admin/ajax/{id?}', 'Admin\AdminController@getTable')->name('admin.getTable');
 

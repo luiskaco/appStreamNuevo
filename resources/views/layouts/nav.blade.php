@@ -99,6 +99,11 @@
 
                                {{ __('Videos') }}
                             </a>
+                            <a class="dropdown-item"
+                                href="#" >
+
+                                {{ __('Agenda') }}
+                            </a>
 
                         </div>
                     </li>
