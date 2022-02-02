@@ -15,28 +15,94 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $users = USer::paginate(8);
 
-        return view('admin.index', compact('users'));
+
+        $userCount = User::all()->count();
+
+
+        $acountUser = USer::all()->count();
+
+        return view('admin.index', compact('acountUser'));
     }
 
 
-    public function getTable(){
-        $user =  User::all();
+    public function getTable($group = null){
 
+        if($group == 0){
+            $user =  User::where('group', '!=', $group)->get();
+        }else{
+            $user = User::where('group', $group)->get();
+        }
+
+
+        // 'name', 'email', 'password','dni', 'agency','status','line','role','group'
         return Datatables($user)
             ->addColumn('id', function ($val) {
-                return "3";
+                return $val->id;
             })
             ->addColumn('name', function ($val) {
-                return "2";
+                return $val->name;
             })
-            ->addColumn('acciones', function ($val){
-                return "1";
+            ->addColumn('agency', function ($val) {
+                return $val->agency;
             })
-            ->rawColumns(['acciones'])
+            ->addColumn('group', function ($val) {
+                return  getSerarhName($val->group);
+            })
+            ->addColumn('line', function ($val) {
+
+                if($val->line){
+                    $lin = "<span class='badge badge-pill badge-success'>En Linea</span>";
+                }else{
+                    $lin = "<span class='badge badge-pill badge-danger'>No conectado</span>";
+                }
+                return $lin;
+            })
+            ->addColumn('status', function ($val) {
+
+                if($val->status == 1){
+                    $status = "<span class='badge badge-pill badge-primary'>Activa</span>";
+                }else{
+                    $status = "<span class='badge badge-pill badge-warning'>Inactiva</span>";
+                }
+                return $status;
+            })
+
+            ->addColumn('action', function ($val){
+                return "";
+            })
+            ->rawColumns(['action','line','status'])
 
             ->make(true);
+    }
+
+    public function getCountUser(Request $request) {
+
+        if($request->ajax()){
+
+            try {
+                $userCount = User::all()->count();
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+
+            return response()->json($userCount, 200);
+
+        }
+    }
+
+    public function getCountUserLine(Request $request) {
+
+        if($request->ajax()){
+
+            try {
+                $userLine = User::where('line', 1)->get()->count();
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+
+            return response()->json( $userLine , 200);
+        }
     }
 
     /**

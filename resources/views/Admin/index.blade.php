@@ -2,196 +2,181 @@
 
 @section('content')
 
-<div class="container mt-4">
+<input type="hidden" value="{{route('admin.getTable')}}" id="getPathTable"/>
+<input type="hidden" value="{{route('admin.getCountUser')}}" id="getPathUser"/>
+<input type="hidden"
+        value="{{route('admin.getCountUserLine')}}"
+        class="getPathUserLine"
+        id="getPathUserLine" />
+
+<div class="container mt-4" >
 
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="table-responsive" >
-                    <table class="table table-bordered table-hover " id="tableUsers">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Nombre y Apellido</th>
-                                <th scope="col">DNI</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">On/off</th>
-                                <th scope="col">Grupo</th>
-                                <th scope="col">Acción</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($users as $vl)
-                            <tr>
-                                <th>{{$vl->id}}</th>
-                                <td>{{$vl->name}}</td>
-                                <td>{{$vl->dni}}</td>
-                                <td>
-                                    @if ($vl->status == 1)
-                                        <span>Cuenta Activa</span>
-                                    @else
-                                        <span>Requiere Activación</span>
-                                    @endif
-                                </td>
-                                <td>
-                                    @if($vl->line == 1)
-                                        <a href="#" title="Usuario Activo">
-                                            <img src="{{asset('img/ico/iconActive.png')}}" alt="icono activo" width="16px" height="16px"/>
-                                        </a>
-                                    @else
-                                        <a href="#" title="Usuario Inactivo">
-                                            <img src="{{asset('img/ico/iconInavtive.png')}}" alt="icono inactivo" width="16px" height="16px"/>
-                                        </a>
-                                    @endif
-                                </td>
-                                <td>
-                                    <span class="badge badge-info text-white badgeSize">{{$vl->group}}</span>
-                                </td>
-                                <td>{{$vl->id}}</td>
+                <div class="container">
+                    <div class="row justify-content-center mt-4 mb-4">
+                        <h3> Listado de Usuarios</h3>
+                    </div>
+                   <div class="row">
+                        <div class="col-md-4 col-sm-12">
 
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                                <div  style="display: flex; flex-direction:column; align-items:center; justify-content: center; flex:1; text-center">
 
+                                    <div class="containerLine">
+                                        <h3 class="headingUser">En linea:</h3>
+                                         <p id="userCountLine">0</p>
+                                    </div>
 
+                                </div>
 
+                                @if (Carbon\carbon::now()->format('Y-m-d') >= "2022-02-04")
+                                    Es igual
+                                @else
+                                    no es igual
+                                @endif
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <form>
+                                <div class="form-group">
+                                <label for="exampleFormControlSelect2">Filtrar por grupo</label>
+                                <select class="form-control" id="selectGroup">
+                                    <option value="0">Todos</option>
+                                    <option value="4">Líderes</option>
+                                    <option value="5">División Nor Oriente CI, Norte CG, Oriente CG</option>
+                                    <option value="7">División Centro CI y CG</option>
+                                    <option value="9">División Sur CI y CG:</option>
+                                    <option value="10">Ceas</option>
+                                </select>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <form>
+                                <div class="form-group ">
+                                    <label for="exampleFormControlSelect2">Generar Reporte</label>
+                                    <button type="button" class="form-control btn btn-outline-success block">Generar Reporte</button>
+                                </div>
+                            </form>
+                        </div>
+                   </div>
+                </div>
+                <div class="container mt-4  mb-4">
+                    <div class="table-responsive" >
+                        <table id="tableUsers" class="display"  class="table table-bordered table-hover table-div" style="width: 100%;" >
+                            <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>Nombre</th>
+                                    <th>Dni</th>
+                                    <th>Agencia</th>
+                                    <th>Grupo</th>
+                                    <th>Line</th>
+                                    <th>Status</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+
+                    </div>
                 </div>
 
-                <div class="paginationTable">
-                    {{ $users->links() }}
-                <div>
+
             </div>
         </div>
 
 
-        <table id="example" class="display" style="width:100%">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
-                </tr>
-            </thead>
-            <tbody>
-
-                <tr>
-                    <td>Michael Bruce</td>
-                    <td>Javascript Developer</td>
-                    <td>Singapore</td>
-                    <td>29</td>
-                    <td>2011/06/27</td>
-                    <td>$183,000</td>
-                </tr>
-                <tr>
-                    <td>Donna Snider</td>
-                    <td>Customer Support</td>
-                    <td>New York</td>
-                    <td>27</td>
-                    <td>2011/01/25</td>
-                    <td>$112,000</td>
-                </tr>
-                <tr>
-                    <td>Donna Snider</td>
-                    <td>Customer Support</td>
-                    <td>New York</td>
-                    <td>27</td>
-                    <td>2011/01/25</td>
-                    <td>$112,000</td>
-                </tr>
-                <tr>
-                    <td>Donna Snider</td>
-                    <td>Customer Support</td>
-                    <td>New York</td>
-                    <td>27</td>
-                    <td>2011/01/25</td>
-                    <td>$112,000</td>
-                </tr>
-                <tr>
-                    <td>Donna Snider</td>
-                    <td>Customer Support</td>
-                    <td>New York</td>
-                    <td>27</td>
-                    <td>2011/01/25</td>
-                    <td>$112,000</td>
-                </tr>
-                <tr>
-                    <td>Luis Carlos</td>
-                    <td>Customer Support</td>
-                    <td>New York</td>
-                    <td>27</td>
-                    <td>2011/01/25</td>
-                    <td>$112,000</td>
-                </tr>
-            </tbody>
-
-        </table>
-
-
-
     </div>
 
-
-
     <br><br><br>
     <br><br><br>
-
-
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jq-3.6.0/dt-1.11.4/datatables.min.css"/>
-
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jq-3.6.0/dt-1.11.4/datatables.min.js"></script>
-
-    <script>
-
-        $(document).ready(function() {
-            $('#example').DataTable( );
-        } );
-
-    </script>
-
-
 
 @endsection
 
 @section('css')
-    <style>
-        .paginationTable{
-            display: flex;
-            justify-content: center;
 
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.4/datatables.min.css"/>
+
+<style>
+
+    /* head*/
+    .headingUser{
+        font-size:1.4rem;
+    }
+
+    /*en line*/
+    .containerLine {
+        text-align: center;
+    }
+
+    .containerLine h3{
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+
+    .containerLine p {
+        margin:0;
+        padding:0;
+        font-size: 1.4rem;
+    }
+
+    /*table*/
+    .page-link {
+        position: relative;
+        display: block;
+        padding: 0.5rem 0.75rem;
+        margin-left: -1px;
+        line-height: 1.25;
+        color: #C9005C;
+        background-color: #fff;
+        border: unset;
+            border-top-color: rgb(222, 226, 230);
+            border-right-color: rgb(222, 226, 230);
+            border-bottom-color: rgb(222, 226, 230);
+            border-left-color: rgb(222, 226, 230);
         }
 
-        .badgeSize{
-            font-size: 1rem;
+        .page-link:hover{
+            color:#C9005C;
         }
 
-        .page-link {
-            position: relative;
-            display: block;
-            padding: 0.5rem 0.75rem;
-            margin-left: -1px;
-            line-height: 1.25;
-            color: #000000;
-            background-color: #fff;
-            border: 1px solid #dee2e6;
-        }
+    .page-item.active .page-link {
+        z-index: 3;
+        color: #fff;
+        background-color: #C9005C;
+        border-color: #C9005C;
+    }
 
-        .page-item.active .page-link {
-            z-index: 3;
-            color: #fff;
-            background-color: #3490dc;
-            border-color: #3490dc;
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+        box-sizing: border-box;
+        display: inline-block;
+        min-width: 1.5em;
+        padding: 0;
+        margin-left: 2px;
+        text-align: center;
+        text-decoration: none !important;
+        cursor: pointer;
+        *cursor: hand;
+        color: #333 !important;
+        border: 1px solid transparent;
+        border-radius: 2px;
+    }
+
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+        color: white !important;
+        border: 1px solid #fff;
+        /* background-color: #585858; */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #585858), color-stop(100%, #111));
+
+        background: unset;
         }
-    </style>
+</style>
+
 
 @endsection
 
 
-@section('js')
-
-
-
-@endsection

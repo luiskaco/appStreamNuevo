@@ -58,6 +58,7 @@
                                href="{{ route('galeria.eventID',['4']) }}" >
                                {{ __('Líderes') }}
                             </a>
+
                             <a class="dropdown-item"
                                 href="{{ route('galeria.eventID',['5']) }}" >
                                 {{ __('División Nor Oriente CI, Norte CG, Oriente CG') }}
@@ -98,12 +99,6 @@
 
                                {{ __('Videos') }}
                             </a>
-                            <a class="dropdown-item"
-                                href="#" >
-
-                                {{ __('Exportaciones') }}
-                            </a>
-
 
                         </div>
                     </li>

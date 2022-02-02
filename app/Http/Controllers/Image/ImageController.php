@@ -66,13 +66,11 @@ class ImageController extends Controller
                 $userID = Auth::user()->id;
 
             try{
-
-
                $image_id = Images::create([
                     'url' => $data['imagen'],
                     'status' => 1,
                   'user_id' => $userID,
-                    'group' => getDateEvent()
+                    'group' => Auth::user()->group
                 ]);
 
                 $comment_id = Comment::create(['desc' => $request->desc, 'user_id' =>  $userID]);

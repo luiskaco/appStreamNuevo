@@ -76,3 +76,34 @@ if (! function_exists('getDateEvent')) {
     }
 
 }
+
+if (! function_exists('getSerarhName')) {
+        function getSerarhName($id = null){
+
+            switch ($id) {
+                case 4:
+                    return "Líderes";
+                break;
+                case 5:
+                    return "División Nor Oriente CI, Norte CG, Oriente CG";
+                break;
+
+                case 7:
+                    return "División Centro CI y CG";
+                break;
+
+                case 9:
+                    return "División Sur CI y CG:";
+                break;
+                case 10:
+                    return "Ceas";
+                break;
+
+                default:
+                    return "No hay datos";
+                break;
+            }
+
+
+    }
+}

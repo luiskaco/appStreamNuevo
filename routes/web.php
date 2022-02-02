@@ -63,7 +63,11 @@ Route::group(['middleware' => 'web', 'middleware' => 'auth'], function () {
 
 
         // table
-        Route::get('/admin/ajax', 'Admin\AdminController@getTable')->name('admin.getTable');
+        Route::get('/admin/ajax/{id?}', 'Admin\AdminController@getTable')->name('admin.getTable');
+
+        Route::get('/admin/getCountUser','Admin\AdminController@getCountUser')->name('admin.getCountUser');
+
+        Route::post('/admin/getCountUserLine','Admin\AdminController@getCountUserLine')->name('admin.getCountUserLine');
 
         // ADmin
         Route::resource('/admin', 'Admin\AdminController');
