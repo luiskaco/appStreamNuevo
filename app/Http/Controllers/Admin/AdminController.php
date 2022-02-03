@@ -62,7 +62,6 @@ class AdminController extends Controller
             return Excel::download(new InvoicesExport($user), 'Encuentros2022.xlsx');
         }
 
-
     }
 
 
