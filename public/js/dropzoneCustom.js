@@ -145,7 +145,7 @@
 
                     document.getElementById('modalClose').click();
 
-                    const valueGROUP = document.getElementById('group2022').value
+                    // const valueGROUP = document.getElementById('group2022').value
 
                     cardAjax();
 

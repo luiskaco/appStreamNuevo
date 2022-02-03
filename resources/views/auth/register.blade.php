@@ -122,7 +122,7 @@
                         </div>
                     </form>
                     <div class="text-center">
-                        <a href="/login" class="text-white " >Regresar</a>
+                        <a href="/login" class="text-white " >Ingresar</a>
                     </div>
 
                 </div>

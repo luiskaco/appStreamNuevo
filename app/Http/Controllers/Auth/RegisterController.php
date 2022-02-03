@@ -97,6 +97,7 @@ class RegisterController extends Controller
             'dni' => $data['dni'],
             'agency' => $data['agency'],
             'group'=> getDateEvent(),
+            'status' => 1,
             'line'=>1
         ]);
 

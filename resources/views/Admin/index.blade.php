@@ -31,25 +31,6 @@
 
                                 </div>
 
-                                @if (Carbon\carbon::now()->format('Y-m-d') >= "2022-02-04" || Auth::user()->role == 'admin')
-                                    4
-                                @endif
-
-                                @if (Carbon\carbon::now()->format('Y-m-d') >= "2022-02-05" || Auth::user()->role == 'admin')
-                                    5
-                                @endif
-
-                                @if (Carbon\carbon::now()->format('Y-m-d') >= "2022-02-07" || Auth::user()->role == 'admin')
-                                    7
-                                @endif
-
-                                @if (Carbon\carbon::now()->format('Y-m-d') >= "2022-02-09" || Auth::user()->role == 'admin')
-                                    9
-                                @endif
-
-                                @if (Carbon\carbon::now()->format('Y-m-d') >= "2022-02-10" || Auth::user()->role == 'admin')
-                                    10
-                                @endif
 
 
                         </div>

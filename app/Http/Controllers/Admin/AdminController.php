@@ -8,6 +8,9 @@ use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 use Maatwebsite\Excel\Concerns\FromView;
+use App\Models\Images;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 // Excel
 class InvoicesExport implements FromView
@@ -35,6 +38,9 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    /** USUARIO  */
     public function index()
     {
         return view('admin.index');
@@ -51,7 +57,7 @@ class AdminController extends Controller
         }
 
         if(!count($user) > 0){
-            return  view('admin.index');
+            return  redirect()->route('admin.index');
         }else{
             return Excel::download(new InvoicesExport($user), 'Encuentros2022.xlsx');
         }
@@ -79,7 +85,7 @@ class AdminController extends Controller
                         return $val->id;
                     })
                     ->addColumn('name', function ($val) {
-                        return $val->name;
+                        return ucfirst(strtolower($val->name));
                     })
                     ->addColumn('agency', function ($val) {
                         return $val->agency;
@@ -98,7 +104,7 @@ class AdminController extends Controller
                     })
                     ->addColumn('status', function ($val) {
 
-                        if($val->status == 1){
+                        if($val->status){
                             $status = "<span class='badge badge-pill badge-primary'>Activa</span>";
                         }else{
                             $status = "<span class='badge badge-pill badge-warning'>Inactiva</span>";
@@ -143,6 +149,77 @@ class AdminController extends Controller
 
             return response()->json( $userLine , 200);
         }
+    }
+
+    public function indexUploadVideo(){
+        return view('admin.video.index');
+    }
+
+
+
+    public function indexUploadImage(){
+        return view('admin.image.index');
+    }
+    
+
+    public function getTableListImage(Request $request){
+
+        if($request->ajax()){
+
+            $images = Images::with('user_link')->get();
+
+            return Datatables($images)
+
+            ->addColumn('id2', function ($val) {
+                return $val->id;
+            })
+            ->addColumn('name', function ($val) {
+                return $val->user_link->name;
+            })
+            ->addColumn('dni', function ($val) {
+                return $val->user_link->dni;
+            })
+            ->addColumn('group2', function ($val) {
+                return getSerarhName($val->group);
+            })
+            ->addColumn('path', function ($val) {
+                return "<img src='".Storage::url('fotos/'.$val->url)."' alt='".$val->name."'  width='100%' height='60px;' />";
+            
+            })
+            ->addColumn('action', function ($val){
+                return "<span class='btn btn-outline-danger btn-sm' data-id='".$val->id."' id='listID' >Eliminar</span>";
+
+            })
+            ->rawColumns(['action','path'])
+
+            ->make(true);
+         }
+    }
+
+
+    public function deleListImage(Request $request){
+
+        if($request->ajax()){
+
+            try {
+                $img = Images::find($request->id);
+
+                // Eliminar del servidor
+                if( File::exists( 'storage/fotos/' . trim($img->url) ) ) {
+                    File::delete( 'storage/fotos/' . trim($img->url) );
+                }
+                // Elimianr de la DB
+                $img->delete();
+    
+                return response()->json( "Correcto", 200);
+                
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+           
+        }
+
+         
     }
 
     /**

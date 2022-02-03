@@ -138,12 +138,12 @@
                                         que se utilizará para conectarse a la transmisión.</li>
                                 </ol>
 
-                            <p style="color: #959595; text-align: center; margin-bottom: 0;">Háblanos al: 940242598</p>
+                            <p style="color: #959595; text-align: center; margin-bottom: 0;">Háblanos al: 954374986</p>
                         </div>
                     </div>
                 </div>
                 <div class="container-button-whatsapp" >
-                    <a target="_blank"  href="https://wa.me/51940242598"
+                    <a target="_blank"  href="https://wa.me/51954374986"
                     class="btn  font-weight-bold text-white"
                     style="background: #49BA39; color:white !important">
                     <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">

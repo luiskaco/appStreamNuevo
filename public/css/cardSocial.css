@@ -201,7 +201,7 @@ hr{
 
 @media(min-width:768px){
     .container-cards{
-        grid-template-columns: repeat(2, 1fr) ;
+        grid-template-columns: repeat(3, 1fr) ;
         width: 100%;
     }
     .instagram-card-footer{
@@ -212,7 +212,7 @@ hr{
 .instagram-card-image img{
    width: 100% !important;
    object-fit: cover;
-   max-height: 250px;
+   max-height: 370px;
 }
 
 .comment{
@@ -245,11 +245,11 @@ hr{
 
 .card-description{
    margin: 5px 0;
-   font-size: .8rem;
+   font-size: .9rem;
 
    display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 4;
     overflow: hidden;
 }
 

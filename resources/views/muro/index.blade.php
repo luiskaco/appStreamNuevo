@@ -3,14 +3,10 @@
 
 @section('content')
 
-
-
 <div class="container container-custom-eventos">
-
-
     <div class="container">
 
-        <input type="hidden" name="grupoID" value="{{$id}}" id="groupID"/>
+            <input type="hidden" name="grupoID" value="{{$id}}" id="groupID"/>
 
             <div class="container">
                 <div class="row justify-content-center flex-column text-center headingSocial">
@@ -30,10 +26,10 @@
             <div class="col-md-6 col-sm-12">
                 <div class="instagram-card">
                     <div class="instagram-card-header">
-                        <span class="instagram-card-user-name">Margaret Vasque</span>
+                        <span class="instagram-card-user-name">Lorem ipsum</span>
                     </div>
-                    <div class="instagram-card-image gradient">
-                        <img src="{{Storage::url('fotos/1643414635.jpg')}}" alt="imagen-"/>
+                    <div class="instagram-card-image">
+                        <img src="{{Storage::url('fotos/1643844964.jpg')}}" alt="imagen-" style="max-height:470px;"/>
                         <div class="instagram-card-content">
                              <p class="card-description">
                                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed commodi deleniti consequatur, facilis eos praesentium accusantium doloremque ducimus optio magnam repellendus voluptatem rerum nostrum at sit, eveniet veniam eius cupiditate.
@@ -81,19 +77,11 @@
 
 @section('css')
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.min.css" integrity="sha512-jU/7UFiaW5UBGODEopEqnbIAHOI8fO6T99m7Tsmqs2gkdujByJfkCbbfPSN4Wlqlb9TGnsuC0YgUgWkRBK7B9A==" crossorigin="anonymous" />
-     <link href="{{asset('css/dropzone.css')}}" rel="stylesheet">
      <link href="{{asset('css/cardSocial.css')}}" rel="stylesheet">
+     <link href="{{asset('css/dropzone.css')}}" rel="stylesheet">
+  
 
-@endsection
-
-@section('js')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.js" integrity="sha512-4p9OjnfBk18Aavg91853yEZCA7ywJYcZpFt+YB+p+gLNPFIAlt2zMBGzTxREYh+sHFsttK0CTYephWaY7I3Wbw==" crossorigin="anonymous"></script>
-    <script src="{{asset('js/dropzoneCustom.js')}}" ></script>
-    <script src="{{asset('js/socialScrip.js')}}" ></script>
-
-@endsection
-
-
+     
 <style>
 
 
@@ -145,4 +133,16 @@
         }
     </style>
 
+
+
+
+@endsection
+
+@section('js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.js" integrity="sha512-4p9OjnfBk18Aavg91853yEZCA7ywJYcZpFt+YB+p+gLNPFIAlt2zMBGzTxREYh+sHFsttK0CTYephWaY7I3Wbw==" crossorigin="anonymous"></script>
+    <script src="{{asset('js/socialScrip.js')}}" ></script>
+    <script src="{{asset('js/dropzoneCustom.js')}}" ></script>
+
+
+@endsection
 

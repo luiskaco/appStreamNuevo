@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 
 class ImageController extends Controller
@@ -282,13 +283,14 @@ class ImageController extends Controller
                     //$imagen->extension();
                     // Str::uuid().'-'.
 
-                    $nombreImagen = time() . '.'. $imagen->extension();
-
-                    // Meotod que me gusta
-                    // $nombreImagen = $imagen->store('vacantes', 'public');
+                    $nombreImagen = time() . Auth::user()->id . '.'. $imagen->extension();
 
                     // Metodo del profe
                     $imagen->move(public_path('storage/fotos'), $nombreImagen );
+
+                    // Resize de la imagen
+                    // $img = Image::make(public_path("storage/fotos/{$nombreImagen}"))->fit(1200, 628);
+                    // $img->save();
 
                     return response()->json(['correcto' => $nombreImagen]);
 

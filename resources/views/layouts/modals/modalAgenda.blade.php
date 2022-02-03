@@ -93,31 +93,79 @@
                     <!-- Modal body -->
                     <div class="modal-body">
                         <div class="container-title-agenda">
-                            <span>evento 1</span>
+                            <span>Actividades</span>
                         </div>
                         <div class="container-agenda-horarios">
                             <div class="container-item-agenda-horario">
                                 <div class="hora-agenda">
-                                    10:00 am - 10:00 pm
+                                    8:00 a 8:30
                                 </div>
                                 <div class="detalle-agenda">
-                                    mevento 1
+                                    Actividad espiritual
                                 </div>
                             </div>
                             <div class="container-item-agenda-horario">
                                 <div class="hora-agenda">
-                                    10:00 am - 10:00 pm
+                                    8:30 a 9:35
                                 </div>
                                 <div class="detalle-agenda">
-                                    evento 1
+                                    Inicio del evento Primer bloque de plenarias
                                 </div>
                             </div>
                             <div class="container-item-agenda-horario">
                                 <div class="hora-agenda">
-                                    10:00 am - 10:00 pm
+                                    9:35 a 9:45
                                 </div>
                                 <div class="detalle-agenda">
-                                    evento 1
+                                    Break
+                                </div>
+                            </div>
+                            <div class="container-item-agenda-horario">
+                                <div class="hora-agenda">
+                                    9:45 a 9:55
+                                </div>
+                                <div class="detalle-agenda">
+                                    Primera dinámica
+                                </div>
+                            </div>
+                            <div class="container-item-agenda-horario">
+                                <div class="hora-agenda">
+                                    9:55 a 10:45
+                                </div>
+                                <div class="detalle-agenda">
+                                    Segundo bloque de plenarias
+                                </div>
+                            </div>
+                            <div class="container-item-agenda-horario">
+                                <div class="hora-agenda">
+                                    10:45 a 11:15
+                                </div>
+                                <div class="detalle-agenda">
+                                    Conversatorio con nuestros líderes
+                                </div>
+                            </div>
+                            <div class="container-item-agenda-horario">
+                                <div class="hora-agenda">
+                                    11:15 a 11:25
+                                </div>
+                                <div class="detalle-agenda">
+                                    Segunda dinámica
+                                </div>
+                            </div>
+                            <div class="container-item-agenda-horario">
+                                <div class="hora-agenda">
+                                    11:25 a 11:40
+                                </div>
+                                <div class="detalle-agenda">
+                                    Acto simbólico
+                                </div>
+                            </div>
+                            <div class="container-item-agenda-horario">
+                                <div class="hora-agenda">
+                                    11:40 a 11:45
+                                </div>
+                                <div class="detalle-agenda">
+                                    Cierre
                                 </div>
                             </div>
                         </div>

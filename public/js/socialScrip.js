@@ -146,7 +146,7 @@ fragment+=
                 <span class='instagram-card-user-name'>${element.name}</span>
             </div>
             <div class='instagram-card-image'>
-                <img src='${element.url}' alt='imagen-${element.id}' width="500" height="250"/>
+                <img src='${element.url}' alt='imagen-${element.id}' loading="lazy"/>
                 <div class='instagram-card-content'>
                 <p class='card-description'>${element.commentary}</p>
                 </div>
@@ -163,9 +163,8 @@ fragment+=
                     data-toggle='modal'
                     data-target='#commentId'
                     data-id='${element.id}'
-                    onclick="btnCommentary(${element.id})"
-                >
-                        <img src='/img/enviar.png' alt='imagen-${element.id}' />
+                    onclick="btnCommentary(${element.id})">
+                    <img src='/img/enviar.png' alt='imagen-${element.id}' />
                 </a>
             </div>
         </div>`;
@@ -176,6 +175,7 @@ return fragment;
 }
 
 function cardAjax () {
+
 
     params = {
         id: document.getElementById('groupID').value

@@ -61,7 +61,7 @@
 
                                 <a class="dropdown-item"
                                     href="{{ route('galeria.eventID',['4']) }}" >
-                                    {{ __('Líderes') }}
+                                    {{ __('Líderes de agencias y CEAS') }}
                                 </a>
 
                             @endif
@@ -70,7 +70,7 @@
 
                                 <a class="dropdown-item"
                                     href="{{ route('galeria.eventID',['5']) }}" >
-                                    {{ __('División Nor Oriente CI, Norte CG, Oriente CG') }}
+                                    {{ __('División Centro CI , División Oriente CG') }}
                                 </a>
 
                             @endif
@@ -80,7 +80,7 @@
 
                                 <a class="dropdown-item"
                                     href="{{ route('galeria.eventID',['7']) }}" >
-                                    {{ __('División Centro CI y CG') }}
+                                    {{ __('Division Nor-Oriente CI , División Norte CG') }}
                                 </a>
 
                             @endif
@@ -90,7 +90,7 @@
 
                                 <a class="dropdown-item"
                                     href="{{ route('galeria.eventID',['9']) }}" >
-                                    {{ __('División Sur CI y CG:') }}
+                                    {{ __('Division Sur CI , División sur CG') }}
                                 </a>
 
                             @endif
@@ -116,8 +116,6 @@
                             {{ __('Administrador') }}
                         </a>
 
-
-
                         <div class="dropdown-menu dropdown-menu-right"
                             aria-labelledby="navbarDropdown">
                             <a class="dropdown-item"
@@ -126,15 +124,17 @@
                                {{ __('Usuarios') }}
                             </a>
                             <a class="dropdown-item"
-                               href="#" >
+                               href="{{route('admin.listImage')}}" >
+
+                               {{ __('Imagen') }}
+                            </a>
+                            <a class="dropdown-item"
+                               href="{{route('admin.uploadVideo')}}" >
 
                                {{ __('Videos -dev') }}
                             </a>
-                            <a class="dropdown-item"
-                                href="#" >
+                           
 
-                                {{ __('Agenda - dev') }}
-                            </a>
                         </div>
 
                     </li>

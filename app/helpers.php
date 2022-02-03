@@ -82,18 +82,18 @@ if (! function_exists('getSerarhName')) {
 
             switch ($id) {
                 case 4:
-                    return "Líderes";
+                    return "Líderes de agencias y CEAS";
                 break;
                 case 5:
-                    return "División Nor Oriente CI, Norte CG, Oriente CG";
+                    return "División Centro CI , División Oriente CG";
                 break;
 
                 case 7:
-                    return "División Centro CI y CG";
+                    return "Division Nor-Oriente CI , División Norte CG";
                 break;
 
                 case 9:
-                    return "División Sur CI y CG:";
+                    return "Division Sur CI , División sur CG";
                 break;
                 case 10:
                     return "Ceas";

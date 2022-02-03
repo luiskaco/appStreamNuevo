@@ -72,7 +72,17 @@ Route::group(['middleware' => 'web', 'middleware' => 'auth'], function () {
 
         Route::post('/admin/getCountUserLine','Admin\AdminController@getCountUserLine')->name('admin.getCountUserLine');
 
-        // ADmin
+        // Upload Admin
+        Route::get('/admin/uploadVideo','Admin\AdminController@indexUploadVideo')->name('admin.uploadVideo');
+
+        // Imagen Admin
+        Route::get('/admin/listImage','Admin\AdminController@indexUploadImage')->name('admin.listImage');
+
+        Route::get('/admin/listImageAjax', 'Admin\AdminController@getTableListImage')->name('admin.listImageAjax');
+
+        Route::post('/admin/deleListImage', 'Admin\AdminController@deleListImage')->name('admin.deleListImageAjax');
+
+        // Admin
         Route::resource('/admin', 'Admin\AdminController');
 
 
