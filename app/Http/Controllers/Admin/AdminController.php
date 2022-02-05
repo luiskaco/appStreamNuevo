@@ -189,6 +189,7 @@ class AdminController extends Controller
 
                 $enlace.= "Ver imagen";
 
+
                 $enlace.= "</a>";
 
                 return  $enlace;
