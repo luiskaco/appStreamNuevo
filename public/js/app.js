@@ -65378,7 +65378,7 @@ setInterval(function () {
   // Consultamos usuarios en linea
   getUserCountLine();
   reloadDinamic();
-}, 60000);
+}, 30000);
 /** END */
 // Consultamos usuarmo la primera vez
 
@@ -65536,6 +65536,9 @@ switch (pathname) {
     // console.log("estas en lista video")
     __webpack_require__(/*! ./listImage */ "./resources/js/listImage.js");
 
+    break;
+
+  case '/evento/home':
     break;
 
   default:

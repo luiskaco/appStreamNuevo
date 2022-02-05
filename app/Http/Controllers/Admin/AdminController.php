@@ -159,13 +159,13 @@ class AdminController extends Controller
     public function indexUploadImage(){
         return view('admin.image.index');
     }
-    
+
 
     public function getTableListImage(Request $request){
 
         if($request->ajax()){
 
-            $images = Images::with('user_link')->get();
+            $images = Images::with('user_link')->orderBy("created_at", "desc")->get();
 
             return Datatables($images)
 
@@ -182,8 +182,17 @@ class AdminController extends Controller
                 return getSerarhName($val->group);
             })
             ->addColumn('path', function ($val) {
-                return "<img src='".Storage::url('fotos/'.$val->url)."' alt='".$val->name."'  width='100%' height='60px;' />";
-            
+                $enlace = "";
+                $enlace.= "<a class='btn btn-outline-info' href='".Storage::url('fotos/'.$val->url)."' data-lightbox='example-set-".$val->id."-".$val->user_link->dni."' data-title='". $val->user_link->name."'>";
+
+                // $enlace.= "<img src='".Storage::url('fotos/'.$val->url)."' alt='".$val->name."'  width='100%' height='60px;' />";
+
+                $enlace.= "Ver imagen";
+
+                $enlace.= "</a>";
+
+                return  $enlace;
+
             })
             ->addColumn('action', function ($val){
                 return "<span class='btn btn-outline-danger btn-sm' data-id='".$val->id."' id='listID' >Eliminar</span>";
@@ -209,16 +218,16 @@ class AdminController extends Controller
                 }
                 // Elimianr de la DB
                 $img->delete();
-    
+
                 return response()->json( "Correcto", 200);
-                
+
             } catch (\Throwable $th) {
                 throw $th;
             }
-           
+
         }
 
-         
+
     }
 
     /**

@@ -132,25 +132,27 @@ axios.post('/evento/galeria/queryComment', params )
 })
 }
 
-
-
 function card(data){
 
 let fragment = '';
 
-data.forEach(element => {
+data.forEach((element, index) => {
 
 fragment+=
         `<div class='instagram-card'>
             <div class='instagram-card-header'>
                 <span class='instagram-card-user-name'>${element.name}</span>
             </div>
-            <div class='instagram-card-image'>
-                <img src='${element.url}' alt='imagen-${element.id}' loading="lazy"/>
-                <div class='instagram-card-content'>
-                <p class='card-description'>${element.commentary}</p>
+
+            <a href="${element.url}"  data-lightbox='example-set-${index}-${element.id}' data-title='${element.name}'>
+                <div class='instagram-card-image'>
+                    <img src='${element.url}' alt='imagen-${element.id}' loading="lazy"/>
+                    <div class='instagram-card-content'>
+                    <p class='card-description'>${element.commentary}</p>
+                    </div>
                 </div>
-            </div>
+            </a>
+
             <div class='instagram-card-footer'>
                 <p class='likes' id = heart>
                     <a class='action-icon-liked btnCheckLike' onclick="btnLike(${element.id})"  data-id='${element.id}' >

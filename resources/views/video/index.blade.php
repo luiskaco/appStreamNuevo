@@ -17,7 +17,8 @@
 
 <div>
     <div class="container mt-4">
-        <div class="container-cards">
+        <div class="row justify-content-center">
+        {{-- <div class="container-cards">
             <div class="instagram-card">
                 <div class="instagram-card-header">
                     <span class="instagram-card-user-name">Video Muestra 1</span>
@@ -30,8 +31,8 @@
                     </div> -->
                 </div>
 
-            </div>
-            <div class="instagram-card">
+            </div> --}}
+            {{-- <div class="instagram-card">
                 <div class="instagram-card-header">
                     <span class="instagram-card-user-name">Video Muestra 1</span>
                 </div> <div class="instagram-card-image">
@@ -43,8 +44,9 @@
                     </div> -->
                 </div>
 
+            </div> --}}
+            <h3 class="text-white">No hay video Disponible</h3>
             </div>
-
         </div>
     </div>
 </div>

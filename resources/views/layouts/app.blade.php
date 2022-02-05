@@ -45,6 +45,8 @@
     <!-- Dropzone -->
     <link href="{{asset('css/dropzone.css')}}" rel="stylesheet">
 
+
+
     @yield('css')
 
 </head>

@@ -53,6 +53,11 @@ switch (pathname) {
           require('./listImage');
 
         break;
+    case '/evento/home':
+
+
+
+        break;
     default:
         console.log('Ningun cambio');
 }
@@ -108,3 +113,5 @@ btnSInput.forEach((enlace, index) => {
     });
 
 });
+
+

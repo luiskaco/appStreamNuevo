@@ -6,7 +6,7 @@ role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header" position: relative; padding: 15px 0 0;>
-                <h4 class="modal-title font-weight-bold text-pink headingPermit">
+                <h4 class="modal-title font-weight-bold text-pink headingPermit pl-2 pr-2">
                     CONSENTIMIENTO DE DATOS PERSONALES
                 </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">

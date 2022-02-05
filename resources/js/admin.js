@@ -28,7 +28,7 @@ setInterval(() => {
     getUserCountLine();
     reloadDinamic();
 
-}, 60000);
+}, 30000);
 /** END */
 
 // Consultamos usuarmo la primera vez
